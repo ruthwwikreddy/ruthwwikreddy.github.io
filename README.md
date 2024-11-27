@@ -1,4 +1,4 @@
-# Ruthwik Reddy's Personal Portfolio
+# Personal Portfolio
 
 Welcome to my personal portfolio website! This site showcases my projects, skills, and professional information as a student passionate about technology and innovation.
 
