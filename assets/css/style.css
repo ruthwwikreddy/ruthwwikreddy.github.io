@@ -2328,3 +2328,144 @@ body {
   background: var(--orange-yellow-crayola); /* Updated to use the primary accent color instead of blue */
 }
 
+/* styles for the school-class section */
+.school-class {
+  background: var(--eerie-black-2); /* Background color */
+  border: 1px solid var(--jet); /* Border color */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Padding around the content */
+  margin: 20px 0; /* Margin for spacing */
+  box-shadow: var(--shadow-2); /* Shadow for depth */
+}
+
+.school-class header {
+  margin-bottom: 15px; /* Space below the header */
+}
+
+.school-class .article-title {
+  color: var(--white-1); /* Title color */
+  font-size: var(--fs-1); /* Font size for the title */
+  text-transform: uppercase; /* Uppercase text */
+}
+
+.subjects, .certifications {
+  margin-top: 20px; /* Space above each section */
+}
+
+.subjects-title, .certifications-title {
+  color: var(--orange-yellow-crayola); /* Title color */
+  font-size: var(--fs-2); /* Font size for section titles */
+  margin-bottom: 10px; /* Space below section titles */
+}
+
+.subjects-list {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0; /* Remove padding */
+}
+
+.subject-item {
+  color: var(--light-gray); /* Color for subject items */
+  font-size: var(--fs-3); /* Font size for subject items */
+  padding: 5px 0; /* Padding for spacing */
+  transition: color 0.3s; /* Smooth color transition */
+}
+
+.subject-item:hover {
+  color: var(--orange-yellow-crayola); /* Change color on hover */
+}
+
+.certifications p {
+  color: var(--light-gray-70); /* Color for certifications text */
+  font-size: var(--fs-4); /* Font size for certifications text */
+}
+
+
+/* Removed duplicate :root declarations and combined them */
+:root {
+  --bg-gradient-onyx: linear-gradient(to bottom right, hsl(210, 90%, 20%) 3%, hsl(210, 85%, 15%) 97%);
+  --bg-gradient-jet: linear-gradient(to bottom right, hsla(210, 85%, 10%, 0.251) 0%, hsla(210, 90%, 5%, 0) 100%), hsl(210, 90%, 5%);
+  --bg-gradient-yellow-1: linear-gradient(to bottom right, hsl(210, 100%, 50%) 0%, hsla(210, 100%, 45%, 0) 50%);
+  --bg-gradient-yellow-2: linear-gradient(135deg, hsla(210, 100%, 50%, 0.251) 0%, hsla(210, 100%, 45%, 0) 59.86%), hsl(210, 90%, 5%);
+  --border-gradient-onyx: linear-gradient(to bottom right, hsl(210, 90%, 20%) 0%, hsla(210, 90%, 20%, 0) 50%);
+  --text-gradient-yellow: linear-gradient(to right, hsl(210, 100%, 50%), hsl(210, 100%, 45%));
+  --jet: hsl(210, 90%, 10%);
+  --onyx: hsl(210, 85%, 15%);
+  --eerie-black-1: hsl(210, 90%, 5%);
+  --eerie-black-2: hsl(210, 90%, 4%);
+  --smoky-black: hsl(210, 100%, 3%);
+  --white-1: hsl(0, 0%, 100%);
+  --white-2: hsl(0, 0%, 98%);
+  --orange-yellow-crayola: hsl(210, 100%, 50%);
+  --vegas-gold: hsl(210, 54%, 40%);
+  --light-gray: hsl(210, 20%, 70%);
+  --light-gray-70: hsla(210, 20%, 70%, 0.7);
+  --bittersweet-shimmer: hsl(210, 43%, 40%);
+  --fs-1: 28px;
+  --fs-2: 22px;
+  --fs-3: 20px;
+  --fs-4: 16px;
+  --fs-5: 14px;
+  --fs-6: 12px;
+  --fs-7: 11px;
+  --fs-8: 10px;
+  --fw-300: 300;
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-600: 600;
+}
+
+/* Removed duplicate scrollbar styles */
+body::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--jet); /* Color of the track */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--blue); /* Color of the scrollbar itself */
+  border-radius: 6px;
+  border: 3px solid var(--jet); /* Creates a border around the scrollbar */
+}
+
+/* Ensure the blue variable is defined */
+:root {
+  --blue: #007BFF; /* A blue color for the scrollbar */
+}
+
+/* Ensure all classes and IDs are properly defined and used */
+.social-link.linkedin {
+  background-image: url('assets/images/linkedin-icon.svg');
+  display: inline-block; /* or block */
+  width: 24px; /* match the SVG width */
+  height: 24px; /* match the SVG height */
+}
+
+/* Ensure toggle switch styles are consistent */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  background: var(--jet);
+  border-radius: 34px;
+  transition: background-color 0.3s;
+}
+
+.toggle-switch::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 30px;
+  height: 30px;
+  background: var(--white-1);
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.input-checkbox:checked + .toggle-switch::before {
+  transform: translateX(26px); /* Move circle to the right */
+  background: var(--orange-yellow-crayola); /* Change color when active */
+}
