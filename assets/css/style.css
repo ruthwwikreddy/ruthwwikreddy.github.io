@@ -851,7 +851,7 @@ main {
 
 
 /*-----------------------------------*\
-  #PORTFOLIO
+  #projects
 \*-----------------------------------*/
 
 .filter-list { display: none; }
@@ -1223,7 +1223,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
   /**
-   * #PORTFOLIO, BLOG 
+   * #projects, BLOG 
    */
 
   .project-img,
@@ -1482,7 +1482,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
   /**
-   * #PORTFOLIO, BLOG
+   * #projects, BLOG
    */
 
   .project-img, .blog-banner-box { border-radius: 16px; }
@@ -1575,7 +1575,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
   /**
-   * PORTFOLIO
+   * projects
    */
 
   .article-title { padding-bottom: 20px; }
@@ -1601,7 +1601,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .filter-item button.active { color: var(--orange-yellow-crayola); }
 
-  /* portfolio and blog grid */
+  /* projects and blog grid */
 
   .project-list, .blog-posts-list { grid-template-columns: 1fr 1fr; }
 
@@ -1720,7 +1720,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
   /**
-   * PORTFOLIO
+   * projects
    */
 
   .project-list { grid-template-columns: repeat(3, 1fr); }
@@ -2361,6 +2361,7 @@ body {
 .subjects-list {
   list-style-type: none; /* Remove default list styling */
   padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
 }
 
 .subject-item {
@@ -2369,7 +2370,6 @@ body {
   padding: 5px 0; /* Padding for spacing */
   transition: color 0.3s; /* Smooth color transition */
 }
-
 .subject-item:hover {
   color: var(--orange-yellow-crayola); /* Change color on hover */
 }
@@ -2469,3 +2469,4 @@ body::-webkit-scrollbar-thumb {
   transform: translateX(26px); /* Move circle to the right */
   background: var(--orange-yellow-crayola); /* Change color when active */
 }
+
