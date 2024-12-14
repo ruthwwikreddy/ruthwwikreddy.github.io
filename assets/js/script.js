@@ -177,3 +177,13 @@ for (let i = 0; i < navigationLinks.length; i++) {
   });
 }
 
+// Update the event listeners for the certification links
+const certificationLinks = document.querySelectorAll(".certification-link");
+certificationLinks.forEach(link => {
+  link.addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent default anchor click behavior
+    const imgSrc = this.getAttribute("href"); // Get the image source
+    const imgWindow = window.open(imgSrc, "_blank"); // Open in a new tab
+    imgWindow.focus(); // Focus on the new tab
+  });
+});

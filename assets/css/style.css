@@ -2470,3 +2470,102 @@ body::-webkit-scrollbar-thumb {
   background: var(--orange-yellow-crayola); /* Change color when active */
 }
 
+
+.certifications-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.certification-item {
+  background: var(--border-gradient-onyx);
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: var(--shadow-2);
+  transition: 0.25s ease;
+}
+
+.certification-item:hover {
+  transform: translateY(-5px);
+}
+
+.certification-name {
+  color: var(--white-2);
+  margin-bottom: 10px;
+  font-size: var(--fs-4);
+}
+
+.certification-issuer,
+.certification-date {
+  color: var(--light-gray-70);
+  font-size: var(--fs-6);
+  margin-bottom: 5px;
+}
+
+.certification-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: var(--vegas-gold);
+  font-size: var(--fs-6);
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.certification-link:hover {
+  color: var(--white);
+}
+
+.certificate-modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.certificate-modal img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+/* Add this CSS to improve the styling of certification images */
+.certifications-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjusted for better responsiveness */
+  gap: 20px; /* Reduced gap for a tighter layout */
+  margin-top: 20px;
+}
+
+.certification-item {
+  background: var(--border-gradient-onyx);
+  padding: 15px; /* Reduced padding for a more compact look */
+  border-radius: 10px; /* Slightly rounded corners */
+  box-shadow: var(--shadow-2);
+  transition: transform 0.3s ease; /* Smooth transition for hover effect */
+  text-align: center; /* Center the content */
+}
+
+.certification-item:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.certification-image {
+  width: 100%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Rounded corners for images */
+  transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.certification-image:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
