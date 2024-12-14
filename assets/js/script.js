@@ -179,11 +179,67 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
 // Update the event listeners for the certification links
 const certificationLinks = document.querySelectorAll(".certification-link");
-certificationLinks.forEach(link => {
-  link.addEventListener("click", function (event) {
-    event.preventDefault(); // Prevent default anchor click behavior
-    const imgSrc = this.getAttribute("href"); // Get the image source
-    const imgWindow = window.open(imgSrc, "_blank"); // Open in a new tab
-    imgWindow.focus(); // Focus on the new tab
+
+// New function to hide all certificates
+const hideAllCertificates = function() {
+  const certificationItems = document.querySelectorAll(".certification-item");
+  certificationItems.forEach(item => {
+    item.style.display = "none"; // Hide all certificates
   });
+};
+
+// New function to show all certificates
+const showAllCertificates = function() {
+  const certificationItems = document.querySelectorAll(".certification-item");
+  certificationItems.forEach(item => {
+    item.style.display = "block"; // Show all certificates
+  });
+};
+
+// Certificate modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const certificationLinks = document.querySelectorAll(".certification-link");
+    const certificateModal = document.getElementById("certificateModal");
+    const modalImage = document.getElementById("modalImage");
+    const closeModal = document.getElementById("closeModal");
+
+    // Function to open modal
+    function openModal(imgSrc) {
+        modalImage.src = imgSrc;
+        certificateModal.style.display = "block";
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+    }
+
+    // Function to close modal
+    function closeModalFunction() {
+        certificateModal.style.display = "none";
+        modalImage.src = "";
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
+    }
+
+    // Add click event to all certificate links
+    certificationLinks.forEach(link => {
+        link.addEventListener("click", function(e) {
+            e.preventDefault();
+            const imgSrc = this.getAttribute("href");
+            openModal(imgSrc);
+        });
+    });
+
+    // Close modal when clicking the close button
+    closeModal.addEventListener("click", closeModalFunction);
+
+    // Close modal when clicking outside the image
+    certificateModal.addEventListener("click", function(e) {
+        if (e.target === certificateModal) {
+            closeModalFunction();
+        }
+    });
+
+    // Close modal when pressing Escape key
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape") {
+            closeModalFunction();
+        }
+    });
 });
