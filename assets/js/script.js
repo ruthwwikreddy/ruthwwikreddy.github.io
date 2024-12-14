@@ -143,36 +143,23 @@ const pages = document.querySelectorAll("[data-page]");
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
-    for (let j = 0; j < pages.length; j++) {
-      if (this.innerHTML.toLowerCase() === pages[j].dataset.page) {
-        pages[j].classList.add("active");
-        navigationLinks[j].classList.add("active");
-        window.scrollTo(0, 0);
-      } else {
-        pages[j].classList.remove("active");
-        navigationLinks[j].classList.remove("active");
-      }
-    }
+    // First remove active class from all navigation links
+    navigationLinks.forEach(link => link.classList.remove("active"));
     
-    // Check if the "about" section is active and remove "school" if so
-    const aboutPage = Array.from(pages).find(page => page.dataset.page === "about");
-    if (aboutPage.classList.contains("active")) {
-      const schoolPage = Array.from(pages).find(page => page.dataset.page === "school");
-      if (schoolPage) {
-        schoolPage.classList.remove("active");
-        const schoolLink = Array.from(navigationLinks).find(link => link.innerHTML.toLowerCase() === "school");
-        if (schoolLink) {
-          schoolLink.classList.remove("active");
-        }
-      }
-    }
+    // Add active class to clicked link
+    this.classList.add("active");
     
-    // New code to handle displaying the school section
-    if (this.innerHTML.toLowerCase() === "school") {
-      const schoolPage = Array.from(pages).find(page => page.dataset.page === "school");
-      if (schoolPage) {
-        schoolPage.classList.add("active"); // Show the school section using the active class
-      }
+    // Remove active class from all pages
+    pages.forEach(page => page.classList.remove("active"));
+    
+    // Find and activate the corresponding page
+    const targetPage = Array.from(pages).find(
+      page => page.dataset.page === this.dataset.page // Use data-page attribute for matching
+    );
+    
+    if (targetPage) {
+      targetPage.classList.add("active");
+      window.scrollTo(0, 0);
     }
   });
 }
@@ -243,3 +230,51 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Update the navigation functionality
+const navigationFunc = function () {
+  // Get all navigation links
+  const navigationLinks = document.querySelectorAll("[data-nav-link]");
+  
+  navigationLinks.forEach(link => {
+    link.addEventListener("click", function () {
+      // Remove active class from all links
+      navigationLinks.forEach(item => item.classList.remove("active"));
+      
+      // Add active class to clicked link
+      this.classList.add("active");
+
+      // Get the page name from the button text
+      const pageName = this.textContent.toLowerCase();
+      
+      // Remove active class from all pages
+      pages.forEach(page => page.classList.remove("active"));
+      
+      // Add active class to corresponding page
+      document.querySelector(`[data-page="${pageName}"]`).classList.add("active");
+    });
+  });
+}
+
+// Call the navigation function
+navigationFunc();
+
+// Certificate modal functionality
+function openFullscreen(element) {
+  const modal = document.getElementById("certificateModal");
+  const modalImg = document.getElementById("modalImage");
+  const closeBtn = document.getElementById("closeModal");
+  
+  modal.style.display = "block";
+  modalImg.src = element.href;
+
+  closeBtn.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+}
