@@ -1,4 +1,3 @@
-
 :root {
 
 
@@ -2653,3 +2652,88 @@ body::-webkit-scrollbar-thumb {
   margin: auto;
   display: block;
 }
+
+/* Achievements Section Styles */
+.achievements {
+    background-color: var(--eerie-black-2); /* Use a dark background for consistency */
+    border: 1px solid var(--jet); /* Consistent border color */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Adequate padding for spacing */
+    margin-bottom: 20px; /* Space between items */
+    box-shadow: var(--shadow-2); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+    width: 100%; /* Increased width to 100% */
+}
+
+.achievements:hover {
+    transform: translateY(-3px); /* Slight lift effect on hover */
+    box-shadow: var(--shadow-3); /* Deeper shadow on hover for emphasis */
+}
+
+.achievements h4 {
+    color: var(--orange-yellow-crayola); /* Use the primary accent color for headings */
+    margin-bottom: 15px; /* Space below headings */
+    font-size: var(--fs-3); /* Consistent font size */
+    font-weight: var(--fw-600); /* Bold font weight for emphasis */
+}
+
+.achievements ul {
+    list-style-type: disc; /* Changed to points */
+    padding-left: 25px; /* Indentation for list items */
+}
+
+.achievements li {
+    margin-bottom: 8px; /* Space between list items */
+    font-size: var(--fs-5); /* Consistent font size for list items */
+    color: var(--light-gray); /* Use a lighter gray for better readability */
+}
+
+/* Additional styles for links within achievements */
+.achievements a {
+    color: var(--orange-yellow-crayola); /* Use the primary accent color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.achievements a:hover {
+    text-decoration: underline; /* Underline on hover for emphasis */
+    color: var(--white-1); /* Change color on hover for visibility */
+}
+
+/*-----------------------------------*\
+  #CO-CURRICULAR ACTIVITIES STYLES
+\*-----------------------------------*/
+
+.co-curricular {
+    background-color: var(--eerie-black-2); /* Dark background for consistency */
+    border: 1px solid var(--jet); /* Consistent border color */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Adequate padding for spacing */
+    margin-bottom: 20px; /* Space below the section */
+    box-shadow: var(--shadow-2); /* Subtle shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.co-curricular:hover {
+    transform: translateY(-3px); /* Slight lift effect on hover */
+    box-shadow: var(--shadow-3); /* Deeper shadow on hover for emphasis */
+}
+
+.co-curricular h3 {
+    color: var(--orange-yellow-crayola); /* Use the primary accent color for headings */
+    margin-bottom: 15px; /* Space below headings */
+    font-size: var(--fs-3); /* Consistent font size */
+    font-weight: var(--fw-600); /* Bold font weight for emphasis */
+}
+
+.co-curricular ul {
+    list-style-type: disc; /* Points for list items */
+    padding-left: 20px; /* Indentation for list items */
+}
+
+.co-curricular li {
+    margin-bottom: 8px; /* Space between list items */
+    font-size: var(--fs-5); /* Consistent font size for list items */
+    color: var(--light-gray); /* Use a lighter gray for better readability */
+}
+
