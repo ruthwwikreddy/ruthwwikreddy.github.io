@@ -72,7 +72,7 @@ const Hero = () => {
               <div className="absolute inset-0 rounded-full border border-[#ea384c]/30 animate-pulse"></div>
               <div className="relative w-80 h-80 rounded-full overflow-hidden border-2 border-[#ea384c] shadow-[0_0_30px_rgba(234,56,76,0.5)]">
                 <img 
-                  src="assets\images\logo.jpg" 
+                  src=".\assets\images\logo.jpg" 
                   alt="Ruthwik Reddy"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                 />
