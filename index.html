@@ -1,18 +1,38 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ruthwik Reddy - Student, Innovator & Tech Enthusiast</title>
-    <meta name="description" content="Portfolio of Akkenapally Ruthwik Reddy - Student, Innovator, and Tech Enthusiast from Hyderabad, India" />
-    <meta name="author" content="Ruthwik Reddy" />
-    <meta property="og:title" content="Ruthwik Reddy - Student, Innovator & Tech Enthusiast" />
-    <meta property="og:url" content="https://ruthwikreddy.xyz" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@ruthwikreddy" />
-    <script type="module" crossorigin src="/assets/index-XCLnDZlN.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DqwWMZnQ.css">
+    <script type="module" crossorigin src="./assets/index-XCLnDZlN.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DqwWMZnQ.css">
+    <script>
+      const originalTitle = "Ruthwik Reddy - Student, Innovator & Tech Enthusiast";
+      const funnyTitles = [
+        "Hey come back 👀",
+        "Ruthwik is watching you 👁️",
+        "Innovator on the loose!",
+        "Tab's lonely without you 🥺",
+        "⚡ Come back to innovation!",
+        "Loading next billion-dollar idea...",
+        "Don't ghost Ruthwik 😢",
+        "🚀 Tech magic happening here!"
+      ];
+
+      let titleInterval;
+      let titleIndex = 0;
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          titleInterval = setInterval(() => {
+            document.title = funnyTitles[titleIndex++ % funnyTitles.length];
+          }, 2000);
+        } else {
+          clearInterval(titleInterval);
+          document.title = originalTitle;
+        }
+      });
+    </script>
   </head>
 
   <body>
