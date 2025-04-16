@@ -6,6 +6,21 @@
     <title>Ruthwik Reddy - Student, Innovator & Tech Enthusiast</title>
     <script type="module" crossorigin src="./assets/index-XCLnDZlN.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-DqwWMZnQ.css">
+    <style>
+      #idle-quote {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #222;
+        color: #fff;
+        padding: 12px 18px;
+        border-radius: 12px;
+        font-size: 14px;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        z-index: 9999;
+      }
+    </style>
     <script>
       const originalTitle = "Ruthwik Reddy - Student, Innovator & Tech Enthusiast";
       const callBackTitles = [
@@ -19,9 +34,25 @@
         "Don't miss the magic!"
       ];
 
-      let titleInterval;
-      let titleIndex = 0;
+      const idleQuotes = [
+        "💡 Innovation is the calling card of the future.",
+        "🚀 Big ideas start small. Keep going.",
+        "🧠 Build fast, learn faster!",
+        "⚡ Don’t just scroll, solve!",
+        "🎯 MVPs are made, not found.",
+        "👨‍💻 Ruthwik is still hacking away...",
+        "📚 Great things take iteration.",
+        "🔥 You're 1 click away from the next breakthrough."
+      ];
 
+      let titleInterval;
+      let idleTimer;
+      let quoteInterval;
+      let isIdle = false;
+      let titleIndex = 0;
+      let quoteIndex = 0;
+
+      // Title Tab Switcher
       document.addEventListener("visibilitychange", () => {
         if (document.hidden) {
           titleInterval = setInterval(() => {
@@ -30,13 +61,54 @@
         } else {
           clearInterval(titleInterval);
           document.title = originalTitle;
+          playReturnSound();
         }
       });
+
+      // Idle User Detector
+      function resetIdleTimer() {
+        isIdle = false;
+        document.getElementById("idle-quote").style.opacity = 0;
+        clearTimeout(idleTimer);
+        clearInterval(quoteInterval);
+        idleTimer = setTimeout(() => {
+          isIdle = true;
+          showIdleQuotes();
+        }, 60000); // 1 min idle
+      }
+
+      function showIdleQuotes() {
+        const quoteBox = document.getElementById("idle-quote");
+        quoteBox.innerText = idleQuotes[quoteIndex++ % idleQuotes.length];
+        quoteBox.style.opacity = 1;
+        quoteInterval = setInterval(() => {
+          quoteBox.innerText = idleQuotes[quoteIndex++ % idleQuotes.length];
+        }, 5000);
+      }
+
+      // Audio Surprise (can be replaced with whisper.mp3, beep.mp3, etc.)
+      function playReturnSound() {
+        const audio = new Audio("https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg");
+        audio.volume = 0.2;
+        audio.play().catch(() => {
+          // Auto-play blocked or muted
+        });
+      }
+
+      // Reset idle timer on user activity
+      ["mousemove", "keydown", "click", "scroll"].forEach(event => {
+        window.addEventListener(event, resetIdleTimer);
+      });
+
+      window.onload = () => {
+        resetIdleTimer(); // Start timer on load
+      };
     </script>
   </head>
 
   <body>
     <div id="root"></div>
+    <div id="idle-quote"></div>
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
   </body>
