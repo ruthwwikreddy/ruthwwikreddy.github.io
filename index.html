@@ -11,14 +11,23 @@
         position: fixed;
         bottom: 20px;
         right: 20px;
-        background: #222;
-        color: #fff;
-        padding: 12px 18px;
-        border-radius: 12px;
+        background: rgba(0, 0, 0, 0.75);
+        color: #00aaff;
+        padding: 14px 20px;
+        border-radius: 14px;
+        font-family: 'Poppins', sans-serif;
         font-size: 14px;
+        box-shadow: 0 0 10px rgba(0, 170, 255, 0.5), 0 0 20px rgba(0, 170, 255, 0.3);
+        border: 1px solid rgba(0, 170, 255, 0.3);
         opacity: 0;
-        transition: opacity 0.4s ease;
+        transition: opacity 0.4s ease, transform 0.3s ease;
         z-index: 9999;
+        transform: translateY(10px);
+      }
+
+      #idle-quote.show {
+        opacity: 1;
+        transform: translateY(0);
       }
     </style>
     <script>
@@ -68,25 +77,26 @@
       // Idle User Detector
       function resetIdleTimer() {
         isIdle = false;
-        document.getElementById("idle-quote").style.opacity = 0;
+        const quoteBox = document.getElementById("idle-quote");
+        quoteBox.classList.remove("show");
         clearTimeout(idleTimer);
         clearInterval(quoteInterval);
         idleTimer = setTimeout(() => {
           isIdle = true;
           showIdleQuotes();
-        }, 60000); // 1 min idle
+        }, 30000); // 30 sec idle
       }
 
       function showIdleQuotes() {
         const quoteBox = document.getElementById("idle-quote");
         quoteBox.innerText = idleQuotes[quoteIndex++ % idleQuotes.length];
-        quoteBox.style.opacity = 1;
+        quoteBox.classList.add("show");
         quoteInterval = setInterval(() => {
           quoteBox.innerText = idleQuotes[quoteIndex++ % idleQuotes.length];
         }, 5000);
       }
 
-      // Audio Surprise (can be replaced with whisper.mp3, beep.mp3, etc.)
+      // Audio Surprise
       function playReturnSound() {
         const audio = new Audio("https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg");
         audio.volume = 0.2;
@@ -95,13 +105,12 @@
         });
       }
 
-      // Reset idle timer on user activity
       ["mousemove", "keydown", "click", "scroll"].forEach(event => {
         window.addEventListener(event, resetIdleTimer);
       });
 
       window.onload = () => {
-        resetIdleTimer(); // Start timer on load
+        resetIdleTimer();
       };
     </script>
   </head>
