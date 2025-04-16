@@ -8,15 +8,15 @@
     <link rel="stylesheet" crossorigin href="./assets/index-DqwWMZnQ.css">
     <script>
       const originalTitle = "Ruthwik Reddy - Student, Innovator & Tech Enthusiast";
-      const funnyTitles = [
-        "Hey come back 👀",
-        "Ruthwik is watching you 👁️",
-        "Innovator on the loose!",
-        "Tab's lonely without you 🥺",
-        "⚡ Come back to innovation!",
-        "Loading next billion-dollar idea...",
-        "Don't ghost Ruthwik 😢",
-        "🚀 Tech magic happening here!"
+      const callBackTitles = [
+        "Come back, genius!",
+        "Still curious?",
+        "Click the tab again!",
+        "Innovation’s waiting!",
+        "You left brilliance!",
+        "Let’s finish this!",
+        "Back to big ideas!",
+        "Don't miss the magic!"
       ];
 
       let titleInterval;
@@ -25,7 +25,7 @@
       document.addEventListener("visibilitychange", () => {
         if (document.hidden) {
           titleInterval = setInterval(() => {
-            document.title = funnyTitles[titleIndex++ % funnyTitles.length];
+            document.title = callBackTitles[titleIndex++ % callBackTitles.length];
           }, 2000);
         } else {
           clearInterval(titleInterval);
