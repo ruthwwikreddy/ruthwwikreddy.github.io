@@ -42,7 +42,7 @@
         "Back to big ideas!",
         "Don't miss the magic!"
       ];
-    
+
       const idleQuotes = [
         "💡 Innovation is the calling card of the future.",
         "🚀 Big ideas start small. Keep going.",
@@ -53,25 +53,30 @@
         "📚 Great things take iteration.",
         "🔥 You're 1 click away from the next breakthrough."
       ];
-    
+
       let titleInterval;
       let idleTimer;
       let quoteInterval;
       let isIdle = false;
       let titleIndex = 0;
       let quoteIndex = 0;
-    
       let lastHiddenTime = null;
       let returnedFromLongIdle = false;
-    
-      // 👇 Sound Function
-      function playReturnSound() {
+
+      // Sound 1: for first time + short return
+      function playSound1() {
         const audio = new Audio("https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg");
-        audio.volume = 0.2;
+        audio.volume = 0.3;
         audio.play().catch(() => {});
       }
-    
-      // 👇 Welcome Back Sound if gone for 1+ min
+
+      // Sound 2: after 1+ min idle return
+      function playSound2() {
+        const audio = new Audio("https://actions.google.com/sounds/v1/alarms/welcome.ogg");
+        audio.volume = 0.3;
+        audio.play().catch(() => {});
+      }
+
       function handleVisibilityChange() {
         if (document.hidden) {
           lastHiddenTime = Date.now();
@@ -81,20 +86,19 @@
         } else {
           clearInterval(titleInterval);
           document.title = originalTitle;
-    
+
           const now = Date.now();
           if (lastHiddenTime && now - lastHiddenTime >= 60000 && !returnedFromLongIdle) {
-            playReturnSound(); // play only once after 1+ min
+            playSound2(); // after 1+ min
             returnedFromLongIdle = true;
-          } else if (!lastHiddenTime || now - lastHiddenTime < 60000) {
-            playReturnSound(); // play always on regular return
+          } else {
+            playSound1(); // short return or first load
           }
-    
-          lastHiddenTime = null; // reset
+
+          lastHiddenTime = null;
         }
       }
-    
-      // 👇 Idle User Detection (30s)
+
       function resetIdleTimer() {
         isIdle = false;
         returnedFromLongIdle = false;
@@ -105,9 +109,9 @@
         idleTimer = setTimeout(() => {
           isIdle = true;
           showIdleQuotes();
-        }, 30000);
+        }, 30000); // 30 seconds
       }
-    
+
       function showIdleQuotes() {
         const quoteBox = document.getElementById("idle-quote");
         quoteBox.innerText = idleQuotes[quoteIndex++ % idleQuotes.length];
@@ -116,18 +120,16 @@
           quoteBox.innerText = idleQuotes[quoteIndex++ % idleQuotes.length];
         }, 5000);
       }
-    
-      // 👇 Activity resets idle timer
+
       ["mousemove", "keydown", "click", "scroll"].forEach(event => {
         window.addEventListener(event, resetIdleTimer);
       });
-    
+
       document.addEventListener("visibilitychange", handleVisibilityChange);
-    
-      // 👇 Initial Load
+
       window.onload = () => {
         resetIdleTimer();
-        playReturnSound(); // first time page opens
+        playSound1(); // play on first load
       };
     </script>
   </head>
