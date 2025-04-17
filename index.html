@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Ruthwik Reddy - Student, Innovator & Tech Enthusiast</title>
     <script type="module" crossorigin src="./assets/index-XCLnDZlN.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-DqwWMZnQ.css">
@@ -63,17 +63,17 @@
       let lastHiddenTime = null;
       let returnedFromLongIdle = false;
 
-      // Sound 1: for first time + short return
+      // Sound 1: short return or first load
       function playSound1() {
-        const audio = new Audio("https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg");
-        audio.volume = 0.3;
+        const audio = new Audio("https://www.soundjay.com/button/sounds/button-16.mp3");
+        audio.volume = 0.4;
         audio.play().catch(() => {});
       }
 
-      // Sound 2: after 1+ min idle return
+      // Sound 2: after 1+ min idle
       function playSound2() {
-        const audio = new Audio("https://actions.google.com/sounds/v1/alarms/welcome.ogg");
-        audio.volume = 0.3;
+        const audio = new Audio("https://www.soundjay.com/button/sounds/button-3.mp3");
+        audio.volume = 0.4;
         audio.play().catch(() => {});
       }
 
@@ -89,10 +89,10 @@
 
           const now = Date.now();
           if (lastHiddenTime && now - lastHiddenTime >= 60000 && !returnedFromLongIdle) {
-            playSound2(); // after 1+ min
+            playSound2(); // 1+ min return
             returnedFromLongIdle = true;
           } else {
-            playSound1(); // short return or first load
+            playSound1(); // short return
           }
 
           lastHiddenTime = null;
@@ -109,7 +109,7 @@
         idleTimer = setTimeout(() => {
           isIdle = true;
           showIdleQuotes();
-        }, 30000); // 30 seconds
+        }, 30000); // 30 sec
       }
 
       function showIdleQuotes() {
@@ -129,7 +129,7 @@
 
       window.onload = () => {
         resetIdleTimer();
-        playSound1(); // play on first load
+        playSound1(); // first load
       };
     </script>
   </head>
