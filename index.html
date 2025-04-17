@@ -42,7 +42,7 @@
         "Back to big ideas!",
         "Don't miss the magic!"
       ];
-
+    
       const idleQuotes = [
         "💡 Innovation is the calling card of the future.",
         "🚀 Big ideas start small. Keep going.",
@@ -53,30 +53,51 @@
         "📚 Great things take iteration.",
         "🔥 You're 1 click away from the next breakthrough."
       ];
-
+    
       let titleInterval;
       let idleTimer;
       let quoteInterval;
       let isIdle = false;
       let titleIndex = 0;
       let quoteIndex = 0;
-
-      // Title Tab Switcher
-      document.addEventListener("visibilitychange", () => {
+    
+      let lastHiddenTime = null;
+      let returnedFromLongIdle = false;
+    
+      // 👇 Sound Function
+      function playReturnSound() {
+        const audio = new Audio("https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg");
+        audio.volume = 0.2;
+        audio.play().catch(() => {});
+      }
+    
+      // 👇 Welcome Back Sound if gone for 1+ min
+      function handleVisibilityChange() {
         if (document.hidden) {
+          lastHiddenTime = Date.now();
           titleInterval = setInterval(() => {
             document.title = callBackTitles[titleIndex++ % callBackTitles.length];
           }, 2000);
         } else {
           clearInterval(titleInterval);
           document.title = originalTitle;
-          playReturnSound();
+    
+          const now = Date.now();
+          if (lastHiddenTime && now - lastHiddenTime >= 60000 && !returnedFromLongIdle) {
+            playReturnSound(); // play only once after 1+ min
+            returnedFromLongIdle = true;
+          } else if (!lastHiddenTime || now - lastHiddenTime < 60000) {
+            playReturnSound(); // play always on regular return
+          }
+    
+          lastHiddenTime = null; // reset
         }
-      });
-
-      // Idle User Detector
+      }
+    
+      // 👇 Idle User Detection (30s)
       function resetIdleTimer() {
         isIdle = false;
+        returnedFromLongIdle = false;
         const quoteBox = document.getElementById("idle-quote");
         quoteBox.classList.remove("show");
         clearTimeout(idleTimer);
@@ -84,9 +105,9 @@
         idleTimer = setTimeout(() => {
           isIdle = true;
           showIdleQuotes();
-        }, 30000); // 30 sec idle
+        }, 30000);
       }
-
+    
       function showIdleQuotes() {
         const quoteBox = document.getElementById("idle-quote");
         quoteBox.innerText = idleQuotes[quoteIndex++ % idleQuotes.length];
@@ -95,22 +116,18 @@
           quoteBox.innerText = idleQuotes[quoteIndex++ % idleQuotes.length];
         }, 5000);
       }
-
-      // Audio Surprise
-      function playReturnSound() {
-        const audio = new Audio("https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg");
-        audio.volume = 0.2;
-        audio.play().catch(() => {
-          // Auto-play blocked or muted
-        });
-      }
-
+    
+      // 👇 Activity resets idle timer
       ["mousemove", "keydown", "click", "scroll"].forEach(event => {
         window.addEventListener(event, resetIdleTimer);
       });
-
+    
+      document.addEventListener("visibilitychange", handleVisibilityChange);
+    
+      // 👇 Initial Load
       window.onload = () => {
         resetIdleTimer();
+        playReturnSound(); // first time page opens
       };
     </script>
   </head>
