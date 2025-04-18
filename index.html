@@ -31,7 +31,10 @@
       }
     </style>
     <script>
+      // Original title
       const originalTitle = "Ruthwik Reddy - Student, Innovator & Tech Enthusiast";
+
+      // Call-back titles when the tab is hidden
       const callBackTitles = [
         "Come back, genius!",
         "Still curious?",
@@ -43,6 +46,7 @@
         "Don't miss the magic!"
       ];
 
+      // Idle quotes to display when the user is inactive
       const idleQuotes = [
         "💡 Innovation is the calling card of the future.",
         "🚀 Big ideas start small. Keep going.",
@@ -63,20 +67,21 @@
       let lastHiddenTime = null;
       let returnedFromLongIdle = false;
 
-      // Sound 1: short return or first load
+      // Play sound on first load
       function playSound1() {
         const audio = new Audio("https://www.soundjay.com/button/sounds/button-16.mp3");
         audio.volume = 0.4;
         audio.play().catch(() => {});
       }
 
-      // Sound 2: after 1+ min idle
+      // Play sound after 1+ minute of idle time
       function playSound2() {
         const audio = new Audio("https://www.soundjay.com/button/sounds/button-3.mp3");
         audio.volume = 0.4;
         audio.play().catch(() => {});
       }
 
+      // Handle visibility change (tab switching)
       function handleVisibilityChange() {
         if (document.hidden) {
           lastHiddenTime = Date.now();
@@ -99,6 +104,7 @@
         }
       }
 
+      // Reset idle timer on any user activity
       function resetIdleTimer() {
         isIdle = false;
         returnedFromLongIdle = false;
@@ -109,24 +115,27 @@
         idleTimer = setTimeout(() => {
           isIdle = true;
           showIdleQuotes();
-        }, 30000); // 30 sec
+        }, 30000); // 30 sec of inactivity
       }
 
+      // Show idle quotes when the user is idle
       function showIdleQuotes() {
         const quoteBox = document.getElementById("idle-quote");
         quoteBox.innerText = idleQuotes[quoteIndex++ % idleQuotes.length];
         quoteBox.classList.add("show");
         quoteInterval = setInterval(() => {
           quoteBox.innerText = idleQuotes[quoteIndex++ % idleQuotes.length];
-        }, 5000);
+        }, 5000); // Change quote every 5 sec
       }
 
+      // Attach event listeners to detect user activity
       ["mousemove", "keydown", "click", "scroll"].forEach(event => {
         window.addEventListener(event, resetIdleTimer);
       });
 
       document.addEventListener("visibilitychange", handleVisibilityChange);
 
+      // On window load, initialize the idle timer and play initial sound
       window.onload = () => {
         resetIdleTimer();
         playSound1(); // first load
@@ -136,7 +145,7 @@
 
   <body>
     <div id="root"></div>
-    <div id="idle-quote"></div>
+    <div id="idle-quote"></div> <!-- Idle quote container -->
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
   </body>
