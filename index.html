@@ -1,18 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ruthwik Reddy - Student, Innovator & Tech Enthusiast</title>
-    <script type="module" crossorigin src="./assets/index-XCLnDZlN.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DqwWMZnQ.css">
+    <meta name="description" content="Portfolio of Akkenapally Ruthwik Reddy - Student, Innovator, and Tech Enthusiast from Hyderabad, India" />
+    <meta name="author" content="Ruthwik Reddy" />
+    <meta property="og:title" content="Ruthwik Reddy - Student, Innovator & Tech Enthusiast" />
+    <meta property="og:url" content="https://ruthwikreddy.xyz" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ruthwikreddy" />
     <style>
       #idle-quote {
         position: fixed;
         bottom: 20px;
         right: 20px;
         background: rgba(0, 0, 0, 0.75);
-        color: #00aaff;
+        color: #007BFF;
         padding: 14px 20px;
         border-radius: 14px;
         font-family: 'Poppins', sans-serif;
@@ -29,6 +34,36 @@
         opacity: 1;
         transform: translateY(0);
       }
+      
+      /* Stealth Mode Base Styles */
+      .stealth-mode {
+        --stealth-primary: #00ff41;
+        --stealth-bg: #000000;
+        --stealth-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+      }
+      
+      body.stealth-mode-active {
+        background-color: var(--stealth-bg);
+        color: var(--stealth-primary);
+        font-family: 'Courier New', monospace;
+        position: relative;
+      }
+      
+      body.stealth-mode-active::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          180deg, 
+          rgba(0, 20, 0, 0.1) 0%, 
+          rgba(0, 20, 0, 0.2) 100%
+        );
+        pointer-events: none;
+        z-index: 1000;
+      }
     </style>
     <script>
       // Original title
@@ -39,9 +74,9 @@
         "Come back, genius!",
         "Still curious?",
         "Click the tab again!",
-        "Innovation’s waiting!",
+        "Innovation's waiting!",
         "You left brilliance!",
-        "Let’s finish this!",
+        "Let's finish this!",
         "Back to big ideas!",
         "Don't miss the magic!"
       ];
@@ -51,7 +86,7 @@
         "💡 Innovation is the calling card of the future.",
         "🚀 Big ideas start small. Keep going.",
         "🧠 Build fast, learn faster!",
-        "⚡ Don’t just scroll, solve!",
+        "⚡ Don't just scroll, solve!",
         "🎯 MVPs are made, not found.",
         "👨‍💻 Ruthwik is still hacking away...",
         "📚 Great things take iteration.",
@@ -109,23 +144,27 @@
         isIdle = false;
         returnedFromLongIdle = false;
         const quoteBox = document.getElementById("idle-quote");
-        quoteBox.classList.remove("show");
-        clearTimeout(idleTimer);
-        clearInterval(quoteInterval);
-        idleTimer = setTimeout(() => {
-          isIdle = true;
-          showIdleQuotes();
-        }, 30000); // 30 sec of inactivity
+        if (quoteBox) {
+          quoteBox.classList.remove("show");
+          clearTimeout(idleTimer);
+          clearInterval(quoteInterval);
+          idleTimer = setTimeout(() => {
+            isIdle = true;
+            showIdleQuotes();
+          }, 30000); // 30 sec of inactivity
+        }
       }
 
       // Show idle quotes when the user is idle
       function showIdleQuotes() {
         const quoteBox = document.getElementById("idle-quote");
-        quoteBox.innerText = idleQuotes[quoteIndex++ % idleQuotes.length];
-        quoteBox.classList.add("show");
-        quoteInterval = setInterval(() => {
+        if (quoteBox) {
           quoteBox.innerText = idleQuotes[quoteIndex++ % idleQuotes.length];
-        }, 5000); // Change quote every 5 sec
+          quoteBox.classList.add("show");
+          quoteInterval = setInterval(() => {
+            quoteBox.innerText = idleQuotes[quoteIndex++ % idleQuotes.length];
+          }, 5000); // Change quote every 5 sec
+        }
       }
 
       // Attach event listeners to detect user activity
@@ -141,11 +180,13 @@
         playSound1(); // first load
       };
     </script>
+    <script type="module" crossorigin src="/assets/index-BvOpWo4f.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DpgPlYsR.css">
   </head>
 
   <body>
     <div id="root"></div>
-    <div id="idle-quote"></div> <!-- Idle quote container -->
+    <div id="idle-quote"></div>
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
   </body>
