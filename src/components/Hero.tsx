@@ -41,56 +41,8 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <>
-      <section id="home" className="relative min-h-screen flex flex-col items-center justify-center pt-16 md:pt-0 overflow-hidden">
-      {/* Full page gradient background */}
-      <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-black via-black to-blue-950/20">
-        {/* Animated gradient overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,123,255,0.1)_0%,rgba(0,0,0,0)_70%)] animate-pulse-slow"></div>
-      </div>
-
-
-      
-      {/* Animated background lines with improved effects */}
-      <div className="absolute inset-0 overflow-hidden opacity-10 md:opacity-20">
-        <div className="absolute h-[0.5px] md:h-[1px] w-full bg-gradient-to-r from-transparent via-[#007BFF]/50 to-transparent top-[15%] md:top-[20%] animate-[pulse_4s_ease-in-out_infinite]"></div>
-        <div className="absolute h-[0.5px] md:h-[1px] w-full bg-gradient-to-r from-transparent via-[#007BFF]/30 to-transparent top-[50%] animate-[pulse_5s_ease-in-out_infinite_1s]"></div>
-        <div className="absolute h-[0.5px] md:h-[1px] w-full bg-gradient-to-r from-transparent via-[#007BFF]/20 to-transparent top-[85%] md:top-[80%] animate-[pulse_4.5s_ease-in-out_infinite_0.5s]"></div>
-        
-        <div className="hidden md:block absolute w-[1px] h-full bg-gradient-to-b from-transparent via-[#007BFF]/50 to-transparent left-[20%] animate-[pulse_4.5s_ease-in-out_infinite]"></div>
-        <div className="hidden md:block absolute w-[1px] h-full bg-gradient-to-b from-transparent via-[#007BFF]/30 to-transparent left-[50%] animate-[pulse_5s_ease-in-out_infinite_0.7s]"></div>
-        <div className="hidden md:block absolute w-[1px] h-full bg-gradient-to-b from-transparent via-[#007BFF]/20 to-transparent left-[80%] animate-[pulse_4s_ease-in-out_infinite_1.5s]"></div>
-      </div>
-
-      {/* Floating particles */}
-      {[...Array(10)].map((_, i) => (
-        <motion.div 
-          key={i}
-          className="absolute rounded-full bg-[#007BFF]/30"
-          style={{
-            '--width': `${Math.random() * 4 + 2}px`,
-            '--height': `${Math.random() * 4 + 2}px`,
-            '--top': `${Math.random() * 100}%`,
-            '--left': `${Math.random() * 100}%`,
-            width: 'var(--width)',
-            height: 'var(--height)',
-            top: 'var(--top)',
-            left: 'var(--left)',
-          } as React.CSSProperties}
-          animate={{
-            y: [0, Math.random() * 30 - 15, 0],
-            x: [0, Math.random() * 30 - 15, 0],
-            opacity: [0.2, 0.5, 0.2]
-          }}
-          transition={{
-            duration: Math.random() * 5 + 5,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-      ))}
-
-      <div className="container mx-auto z-10 w-full px-4 sm:px-6">
+    <section id="home" className="relative w-full flex flex-col items-center justify-start py-20 md:py-24">
+      <div className="container mx-auto w-full px-4 sm:px-6">
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center w-full"
           variants={containerVariants}
@@ -167,7 +119,7 @@ const Hero: React.FC = () => {
               >
                 {[
                   { icon: Linkedin, href: "https://www.linkedin.com/in/ruthwwikreddy/" },
-                  { icon: Twitter, href: "https://x.com/ruthwikreddy" },
+                  { icon: Twitter, href: "https://x.com/ruthwwikreddy" },
                   { icon: Instagram, href: "https://www.instagram.com/ruthwwikreddy/" },
                   { icon: Github, href: "https://github.com/ruthwwikreddy" }
                 ].map((social, index) => (
@@ -223,7 +175,6 @@ const Hero: React.FC = () => {
         </motion.div>
       </div>
     </section>
-    </>
   );
 };
 
