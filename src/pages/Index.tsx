@@ -130,13 +130,7 @@ const Index = () => {
           </motion.div>
         </motion.div>
       ) : (
-        <motion.div 
-          key="content"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="relative min-h-screen w-full bg-black"
-        >
+        <div className="min-h-screen w-full bg-black">
           <CustomCursor />
           <div className="flex flex-col w-full">
             <main className="flex-1 w-full">
@@ -146,8 +140,7 @@ const Index = () => {
                 </Container>
               </section>
 
-
-              <section id="about" className="w-full py-24 bg-black/5">
+              <section id="about" className="w-full py-24">
                 <Container>
                   <About />
                 </Container>
@@ -161,32 +154,32 @@ const Index = () => {
               </section>
 
 
-              <section id="certifications" className="w-full py-24 bg-black">
+              <section id="certifications" className="w-full py-24">
                 <Container>
                   <Certifications />
                 </Container>
               </section>
 
 
-              <section id="featured" className="w-full py-24 bg-black/5">
+              <section id="featured" className="w-full py-24">
                 <Container>
                   <Featured />
                 </Container>
               </section>
 
-              <section id="links" className="w-full py-24 bg-black">
+              <section id="links" className="w-full py-24">
                 <Container>
                   <Links />
                 </Container>
               </section>
 
 
-              <section id="banner" className="w-full relative overflow-hidden py-16 bg-black">
+              <section id="banner" className="w-full relative overflow-hidden py-16">
                 <Banner />
               </section>
 
 
-              <section id="contact" className="w-full py-24 bg-black/5">
+              <section id="contact" className="w-full py-24">
                 <Container>
                   <Contact
                     formData={contactFormData}
@@ -198,7 +191,7 @@ const Index = () => {
             </main>
             <Footer />
           </div>
-        </motion.div>
+        </div>
       )}
     </AnimatePresence>
   );

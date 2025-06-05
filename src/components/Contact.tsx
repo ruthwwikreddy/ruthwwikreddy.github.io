@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Send, CheckCircle } from 'lucide-react';
 import { useForm, ValidationError } from '@formspree/react';
 import { motion } from 'framer-motion';
-import ExampleQuestions from './ExampleQuestions';
 
 interface ContactFormData {
   name: string;
@@ -293,7 +292,6 @@ const Contact = ({ formData, setFormData, onSubmit }: ContactProps) => {
                     {state.submitting ? 'Sending...' : 'Send Message'}
                   </button>
                   
-                  <ExampleQuestions />
                 </form>
               </div>
             )}
