@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
               <Linkedin className="w-5 h-5" />
             </a>
             <a 
-              href="https://x.com/ruthwikreddy" 
+              href="https://x.com/ruthwwikreddy" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-white hover:text-[#007BFF] transition-all duration-300 hover:scale-110"
@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
               <Twitter className="w-5 h-5" />
             </a>
             <a 
-              href="https://www.instagram.com/ruthwwikreddy/" 
+              href="https://www.instagram.com/ruthwikreddy/" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-white hover:text-[#007BFF] transition-all duration-300 hover:scale-110"

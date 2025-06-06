@@ -120,7 +120,7 @@ const Hero: React.FC = () => {
                 {[
                   { icon: Linkedin, href: "https://www.linkedin.com/in/ruthwwikreddy/" },
                   { icon: Twitter, href: "https://x.com/ruthwwikreddy" },
-                  { icon: Instagram, href: "https://www.instagram.com/ruthwwikreddy/" },
+                  { icon: Instagram, href: "https://www.instagram.com/ruthwikreddy/" },
                   { icon: Github, href: "https://github.com/ruthwwikreddy" }
                 ].map((social, index) => (
                   <motion.a 
