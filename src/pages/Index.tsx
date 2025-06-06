@@ -147,7 +147,7 @@ const Index = () => {
               </section>
 
 
-              <section id="case-studies" className="w-full py-24">
+              <section id="case-studies" className="w-full py-24 -mb-12">
                 <Container>
                   <CaseStudyCarousel />
                 </Container>
@@ -161,7 +161,7 @@ const Index = () => {
               </section>
 
 
-              <section id="featured" className="w-full py-24">
+              <section id="featured" className="w-full py-24 mb-0">
                 <Container>
                   <Featured />
                 </Container>

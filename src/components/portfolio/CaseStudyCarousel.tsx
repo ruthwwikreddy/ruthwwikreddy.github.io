@@ -133,22 +133,20 @@ export function CaseStudyCarousel() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <h2 className="section-title text-center mx-auto mb-6 text-3xl sm:text-4xl md:text-5xl font-bold">Case Studies</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto mb-8 sm:mb-12 text-sm sm:text-base md:text-lg">
-              Explore my recent projects and case studies that showcase my expertise and problem-solving approach
-          </p>
+          </div>
         </div>
       </div>
 
-        <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent opacity-20" />
-          <div className="absolute inset-0 bg-gradient-to-l from-black/60 to-transparent opacity-20" />
-          
-          <div className="overflow-hidden relative">
-            <div 
-              ref={carouselRef} 
-              className="flex space-x-4 sm:space-x-6 snap-x snap-mandatory"
-              style={{ scrollSnapType: 'x mandatory' }}
-            >
+      <div className="relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-l from-black/60 to-transparent opacity-20" />
+        
+        <div className="overflow-hidden relative">
+          <div 
+            ref={carouselRef} 
+            className="flex space-x-4 sm:space-x-6 snap-x snap-mandatory"
+            style={{ scrollSnapType: 'x mandatory' }}
+          >
             {caseStudies.map((study) => (
               <div 
                 key={study.id} 
@@ -194,43 +192,43 @@ export function CaseStudyCarousel() {
               </div>
             ))}
           </div>
-        </div>
-        
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 px-4">
-          <button
-            onClick={() => handleSlide('prev')}
-            className="p-3 bg-black/50 rounded-full text-white hover:bg-black/70 transition-colors
-              ${isMobile ? 'hidden' : 'block'}"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-        </div>
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 px-4">
-          <button
-            onClick={() => handleSlide('next')}
-            className="p-3 bg-black/50 rounded-full text-white hover:bg-black/70 transition-colors"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-          {caseStudies.map((_, index) => (
-            <div
-              key={index}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === currentIndex 
-                  ? 'bg-white' 
-                  : 'bg-white/30 hover:bg-white/50 cursor-pointer'
+          
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 px-4">
+            <button
+              onClick={() => handleSlide('prev')}
+              className={`p-3 bg-black/50 rounded-full text-white hover:bg-black/70 transition-colors ${
+                isMobile ? 'hidden' : 'block'
               }`}
-              onClick={() => setCurrentIndex(index)}
-            />
-          ))}
-        </div>
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+          </div>
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 px-4">
+            <button
+              onClick={() => handleSlide('next')}
+              className="p-3 bg-black/50 rounded-full text-white hover:bg-black/70 transition-colors"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+            {caseStudies.map((_, index) => (
+              <div
+                key={index}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === currentIndex 
+                    ? 'bg-white' 
+                    : 'bg-white/30 hover:bg-white/50 cursor-pointer'
+                }`}
+                onClick={() => setCurrentIndex(index)}
+              />
+            ))}
+          </div>
         </div>
 
         {selectedCaseStudy && (

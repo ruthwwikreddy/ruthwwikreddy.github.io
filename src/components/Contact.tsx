@@ -106,14 +106,12 @@ const Contact = ({ formData, setFormData, onSubmit }: ContactProps) => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
           <h2 className="section-title text-center mx-auto mb-6 text-3xl sm:text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#007BFF] to-[#0069d9]">Get in Touch</h2>
-          <p className="text-gray-300 max-w-xl mx-auto text-xs sm:text-sm md:text-base leading-relaxed bg-clip-text text-transparent bg-gradient-to-r from-[#007BFF]/50 to-[#0069d9]/50">Ready to start something amazing? I'm here to help you bring your ideas to life. Let's create something extraordinary together!</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto mt-6 sm:mt-8 md:mt-12">
           {/* Maps Section */}
           <div className="space-y-4">
             <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-portfolio-primary bg-clip-text text-transparent bg-gradient-to-r from-[#007BFF] to-[#0069d9]">Where to Find Me</h3>
-            <p className="text-gray-400 text-sm sm:text-base mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#007BFF]/50 to-[#0069d9]/50">Based in Hyderabad, India</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="relative rounded-lg overflow-hidden">
                 <iframe 
