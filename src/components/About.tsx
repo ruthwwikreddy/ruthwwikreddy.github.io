@@ -76,9 +76,9 @@ const About = () => {
                 <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-blue-400 to-purple-600 opacity-30 blur-xl"></div>
                 <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-2 border-blue-400 shadow-lg shadow-blue-400/30">
                   <img 
-                    src="/images/logo.jpg" 
+                    src="/images/Gallery/1.png" 
                     alt="Ruthwik Reddy"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover scale-110 transition-all"
                   />
                 </div>
               </div>
