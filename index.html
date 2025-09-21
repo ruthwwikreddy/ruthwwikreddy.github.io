@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ruthwik Reddy - Student, Innovator & Tech Enthusiast</title>
     <script>
-      // Original title
       const originalTitle = "Ruthwik Reddy - Student, Innovator & Tech Enthusiast";
 
-      // Call-back titles when the tab is hidden
       const callBackTitles = [
         "Come back, genius!",
         "Still curious?",
@@ -24,7 +22,6 @@
       let titleInterval;
       let titleIndex = 0;
 
-      // Handle visibility change (tab switching)
       function handleVisibilityChange() {
         if (document.hidden) {
           titleInterval = setInterval(() => {
@@ -38,19 +35,10 @@
 
       document.addEventListener("visibilitychange", handleVisibilityChange);
 
-      // Initialize title on load
       window.onload = () => {
         document.title = originalTitle;
       };
     </script>
-    <meta name="description" content="Portfolio of Akkenapally Ruthwik Reddy - Student, Innovator, and Tech Enthusiast from Hyderabad, India" />
-    <meta name="author" content="Ruthwik Reddy" />
-    <meta property="og:title" content="Ruthwik Reddy - Student, Innovator & Tech Enthusiast" />
-    <meta property="og:url" content="https://ruthwikreddy.xyz" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@ruthwikreddy" />
-    <link id="favicon" rel="icon" href="/svg/1.svg" type="image/svg+xml" />
-
   </head>
 
   <body>
