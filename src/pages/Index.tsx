@@ -95,6 +95,25 @@ const Index = () => {
           <div className="flex flex-col w-full">
             <main className="flex-1 w-full">
               <Hero />
+
+              {/* Banner Section */}
+              <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
+                >
+                  <img
+                    src="/images/banner.jpg"
+                    alt="Banner"
+                    className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+                </motion.div>
+              </div>
+
               <About />
               <CaseStudyCarousel />
               <Certifications />

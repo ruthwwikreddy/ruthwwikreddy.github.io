@@ -36,9 +36,15 @@ This phase focused on refining the portfolio's aesthetic to a strict "Pure Black
 *   **Controls**: Updated navigation buttons and pagination dots to white.
 
 #### Contact Section (`src/components/Contact.tsx`)
-*   **Background**: Changed to pure black.
-*   **Form**: Updated input fields and buttons to use white borders and text.
-*   **Animations**: Removed blue particle animations.
+*   **Design**: Completely remade with a modern split layout.
+*   **Left Column**: Large "Let's work together" heading and direct contact info (Email, Location).
+*   **Right Column**: Clean, glassmorphic contact form.
+*   **Aesthetic**: Pure black background, white text, and white/gray form elements. Removed maps and blue particles.
+
+#### Banner Section (New)
+*   **Location**: Added between Hero and About sections in `src/pages/Index.tsx`.
+*   **Content**: Displays `public/images/banner.jpg`.
+*   **Styling**: Responsive, rounded corners, white border, and a grayscale-to-color hover effect.
 
 #### Footer (`src/components/Footer.tsx`)
 *   **Background**: Changed to pure black.
