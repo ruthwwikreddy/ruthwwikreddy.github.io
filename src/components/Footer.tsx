@@ -31,6 +31,18 @@ const Footer = () => {
     },
   ];
 
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      const offsetPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   const quickLinks = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
@@ -78,6 +90,7 @@ const Footer = () => {
                   <li key={index}>
                     <a
                       href={link.href}
+                      onClick={(e) => scrollToSection(e, link.href)}
                       className="text-white/70 hover:text-white transition-colors duration-300 text-sm"
                     >
                       {link.name}

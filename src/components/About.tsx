@@ -1,36 +1,48 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Palette, Rocket, Users, Trophy } from 'lucide-react';
+import { Code2, Palette, Rocket, Users, Trophy, Star, Zap, Globe } from 'lucide-react';
 
 const About = () => {
   const skills = [
     {
       icon: Code2,
-      title: 'Full-Stack Development',
-      description: 'Building scalable web applications with modern technologies',
+      title: 'Full-Stack Dev',
+      description: 'Building scalable web apps',
+      color: 'text-blue-400',
+      bg: 'bg-blue-400/10',
+      border: 'border-blue-400/20'
     },
     {
       icon: Palette,
       title: 'UI/UX Design',
-      description: 'Creating beautiful, intuitive user experiences',
+      description: 'Crafting intuitive experiences',
+      color: 'text-purple-400',
+      bg: 'bg-purple-400/10',
+      border: 'border-purple-400/20'
     },
     {
       icon: Rocket,
-      title: 'Product Development',
-      description: 'Transforming ideas into successful products',
+      title: 'Product Strategy',
+      description: 'From concept to launch',
+      color: 'text-pink-400',
+      bg: 'bg-pink-400/10',
+      border: 'border-pink-400/20'
     },
     {
       icon: Users,
-      title: 'Team Leadership',
-      description: 'Leading and mentoring development teams',
+      title: 'Leadership',
+      description: 'Mentoring & guiding teams',
+      color: 'text-emerald-400',
+      bg: 'bg-emerald-400/10',
+      border: 'border-emerald-400/20'
     },
   ];
 
   const stats = [
-    { number: '15', label: 'Years Old' },
-    { number: '20+', label: 'Projects' },
-    { number: '10+', label: 'Certifications' },
-    { number: '100%', label: 'Passion' },
+    { number: '15', label: 'Years Old', icon: Star },
+    { number: '20+', label: 'Projects', icon: Zap },
+    { number: '10+', label: 'Certifications', icon: Trophy },
+    { number: '100%', label: 'Passion', icon: Globe },
   ];
 
   const containerVariants = {
@@ -55,115 +67,133 @@ const About = () => {
   };
 
   return (
-    <section id="about" className="py-20 bg-black relative overflow-hidden">
-      {/* Background Elements */}
-      {/* Background Elements - Removed for consistency */}
-
-
+    <section id="about" className="py-24 bg-black relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
+
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]">
-            About <span className="text-white">Me</span>
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/50">Me</span>
           </h2>
-          <p className="text-white/70 text-lg max-w-2xl mx-auto">
-            A young developer passionate about creating innovative solutions and learning new technologies
-          </p>
+          <div className="h-1 w-24 mx-auto bg-gradient-to-r from-transparent via-white to-transparent rounded-full opacity-50" />
         </motion.div>
 
-        {/* Stats Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
-        >
-          {stats.map((stat, index) => (
+        <div className="grid lg:grid-cols-12 gap-12 items-start">
+
+          {/* Left Column: Story & Stats */}
+          <div className="lg:col-span-7 space-y-12">
+            {/* Story Card */}
             <motion.div
-              key={index}
-              variants={itemVariants}
-              className="text-center p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all duration-300"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="p-8 md:p-10 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm relative overflow-hidden group"
             >
-              <div className="text-4xl md:text-5xl font-bold text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.3)] mb-2">
-                {stat.number}
+              <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
+                <Trophy className="w-32 h-32 text-white" />
               </div>
-              <div className="text-white/70 text-sm md:text-base">{stat.label}</div>
+
+              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                <span className="w-2 h-8 bg-white rounded-full" />
+                My Journey
+              </h3>
+
+              <div className="space-y-6 text-white/70 leading-relaxed text-lg relative z-10">
+                <p>
+                  At just <span className="text-white font-semibold">15 years old</span>, I've embarked on an exciting journey in technology.
+                  My passion for coding ignited early, driving me to constantly learn, build, and push the boundaries of what's possible.
+                </p>
+                <p>
+                  I believe in <span className="text-white font-semibold">learning by doing</span>. Every project is an opportunity to explore new technologies
+                  and solve real-world problems. Whether it's architecting complex web applications or designing pixel-perfect interfaces,
+                  I approach each challenge with relentless enthusiasm.
+                </p>
+                <p>
+                  My goal is simple: to continue growing as a developer and make a tangible impact through innovative technology.
+                </p>
+              </div>
             </motion.div>
-          ))}
-        </motion.div>
 
-        {/* Skills Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid md:grid-cols-2 gap-6 mb-16"
-        >
-          {skills.map((skill, index) => {
-            const Icon = skill.icon;
-            return (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{ scale: 1.02, y: -5 }}
-                className="group relative p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-white/30 transition-all duration-300"
-              >
-                <div className="inline-flex p-3 rounded-xl bg-white/10 mb-4">
-                  <Icon className="w-6 h-6 text-white" />
-                </div>
-
-                <h3 className="text-xl font-bold text-white mb-2 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">{skill.title}</h3>
-                <p className="text-white/70">{skill.description}</p>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-
-        {/* Personal Statement */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto"
-        >
-          <div className="p-8 md:p-12 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="p-3 rounded-xl bg-white/10">
-                <Trophy className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-white mb-4 drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">My Journey</h3>
-                <div className="space-y-4 text-white/80 leading-relaxed">
-                  <p>
-                    At just 15 years old, I've already embarked on an exciting journey in the world of technology.
-                    My passion for coding started early, and since then, I've been constantly learning, building,
-                    and pushing the boundaries of what's possible.
-                  </p>
-                  <p>
-                    I believe in learning by doing. Every project is an opportunity to explore new technologies,
-                    solve real-world problems, and create something meaningful. Whether it's building web applications,
-                    designing user interfaces, or exploring new frameworks, I approach each challenge with enthusiasm
-                    and dedication.
-                  </p>
-                  <p>
-                    My goal is to continue growing as a developer, contribute to innovative projects, and make a
-                    positive impact through technology. I'm always open to new opportunities, collaborations, and
-                    learning experiences.
-                  </p>
-                </div>
-              </div>
-            </div>
+            {/* Stats Grid */}
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="grid grid-cols-2 sm:grid-cols-4 gap-4"
+            >
+              {stats.map((stat, index) => {
+                const Icon = stat.icon;
+                return (
+                  <motion.div
+                    key={index}
+                    variants={itemVariants}
+                    className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm text-center hover:bg-white/10 transition-colors duration-300"
+                  >
+                    <div className="mb-2 flex justify-center opacity-50">
+                      <Icon className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="text-2xl md:text-3xl font-bold text-white mb-1">
+                      {stat.number}
+                    </div>
+                    <div className="text-xs text-white/50 uppercase tracking-wider font-medium">
+                      {stat.label}
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
           </div>
-        </motion.div>
+
+          {/* Right Column: Skills */}
+          <div className="lg:col-span-5 space-y-6">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                <span className="w-2 h-8 bg-white rounded-full" />
+                Expertise
+              </h3>
+
+              <div className="space-y-4">
+                {skills.map((skill, index) => {
+                  const Icon = skill.icon;
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      whileHover={{ scale: 1.02, x: 5 }}
+                      className={`p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm transition-all duration-300 group hover:border-white/30`}
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className={`p-3 rounded-xl bg-white/10 text-white group-hover:scale-110 transition-transform duration-300`}>
+                          <Icon className="w-6 h-6" />
+                        </div>
+                        <div>
+                          <h4 className="text-lg font-bold text-white mb-1">{skill.title}</h4>
+                          <p className="text-white/60 text-sm">{skill.description}</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

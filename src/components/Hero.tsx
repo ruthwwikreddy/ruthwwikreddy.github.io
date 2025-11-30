@@ -53,14 +53,14 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-black">
+    <section id="home" className="relative min-h-screen w-full overflow-hidden bg-black">
       {/* Animated Background Grid - Removed to fix layout gap */}
 
 
       {/* Main Content */}
       <div className="relative z-10 flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="max-w-6xl mx-auto text-center"
+          className="max-w-7xl mx-auto text-center"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -82,7 +82,7 @@ const Hero = () => {
               variants={floatingVariants}
               animate="animate"
             >
-              <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto">
+              <div className="relative w-48 h-48 md:w-64 md:h-64 mx-auto">
                 <img
                   src="/images/logo.jpg"
                   alt="Ruthwik Reddy"
@@ -110,10 +110,21 @@ const Hero = () => {
 
           {/* Description */}
           <motion.div variants={itemVariants}>
-            <p className="text-base sm:text-lg text-white/70 mb-12 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-white/70 mb-8 max-w-2xl mx-auto leading-relaxed">
               Full-stack developer, designer, and creator. I transform ideas into elegant digital experiences
               that people love to use.
             </p>
+          </motion.div>
+
+          {/* Signature */}
+          <motion.div variants={itemVariants} className="mb-12 flex justify-center">
+            <div className="h-24 md:h-32 overflow-hidden flex items-center justify-center">
+              <img
+                src="/images/Signature/SVG/4.svg"
+                alt="Signature"
+                className="h-48 md:h-64 w-auto max-w-none opacity-90 invert -mt-4"
+              />
+            </div>
           </motion.div>
 
           {/* CTA Buttons */}

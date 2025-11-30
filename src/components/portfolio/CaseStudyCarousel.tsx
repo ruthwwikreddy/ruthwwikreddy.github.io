@@ -129,7 +129,7 @@ export function CaseStudyCarousel() {
 
   return (
     <section id="case-studies" className="py-16 sm:py-20 md:py-24 bg-black">
-      <div className="relative w-full max-w-6xl mx-auto">
+      <div className="relative w-full max-w-7xl mx-auto">
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <h2 className="section-title text-center mx-auto mb-6 text-3xl sm:text-4xl md:text-5xl font-bold text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]">Case Studies</h2>
@@ -225,8 +225,8 @@ export function CaseStudyCarousel() {
               <div
                 key={index}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentIndex
-                    ? 'bg-white shadow-[0_0_10px_rgba(255,255,255,0.5)]'
-                    : 'bg-white/30 hover:bg-white/50 cursor-pointer'
+                  ? 'bg-white shadow-[0_0_10px_rgba(255,255,255,0.5)]'
+                  : 'bg-white/30 hover:bg-white/50 cursor-pointer'
                   }`}
                 onClick={() => setCurrentIndex(index)}
               />
