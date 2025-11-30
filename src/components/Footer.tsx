@@ -6,12 +6,12 @@ const Footer = () => {
   const socialLinks = [
     {
       icon: Github,
-      href: 'https://github.com/ruthwikreddy',
+      href: 'https://github.com/ruthwwikreddy',
       label: 'GitHub',
     },
     {
       icon: Linkedin,
-      href: 'https://linkedin.com/in/ruthwikreddy',
+      href: 'https://linkedin.com/in/ruthwwikreddy',
       label: 'LinkedIn',
     },
     {
@@ -35,7 +35,9 @@ const Footer = () => {
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
-      const offsetPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offset = 120;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - offset;
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'

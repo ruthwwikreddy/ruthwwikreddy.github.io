@@ -82,7 +82,7 @@ const Hero = () => {
               variants={floatingVariants}
               animate="animate"
             >
-              <div className="relative w-48 h-48 md:w-64 md:h-64 mx-auto">
+              <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto">
                 <img
                   src="/images/logo.jpg"
                   alt="Ruthwik Reddy"
@@ -130,7 +130,9 @@ const Hero = () => {
           {/* CTA Buttons */}
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <motion.a
-              href="#contact"
+              href="https://ideaboard.live/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative px-8 py-4 bg-white text-black rounded-xl font-semibold overflow-hidden"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -138,8 +140,8 @@ const Hero = () => {
               onHoverEnd={() => setIsHovered(false)}
             >
               <span className="relative z-10 flex items-center gap-2 justify-center">
-                Let's Connect
-                <ArrowRight className={`w-5 h-5 transition-transform ${isHovered ? 'translate-x-1' : ''}`} />
+                Visit Company
+                <img src="https://ideaboard.live/logo.png" alt="IdeaBoard" className="w-5 h-5 object-contain invert" />
               </span>
             </motion.a>
 
@@ -156,8 +158,8 @@ const Hero = () => {
           {/* Social Links */}
           <motion.div variants={itemVariants} className="flex justify-center gap-6">
             {[
-              { icon: Github, href: 'https://github.com/ruthwikreddy', label: 'GitHub' },
-              { icon: Linkedin, href: 'https://linkedin.com/in/ruthwikreddy', label: 'LinkedIn' },
+              { icon: Github, href: 'https://github.com/ruthwwikreddy', label: 'GitHub' },
+              { icon: Linkedin, href: 'https://linkedin.com/in/ruthwwikreddy', label: 'LinkedIn' },
               { icon: Twitter, href: 'https://www.instagram.com/youngfounderrr/', label: 'Instagram' },
               { icon: Mail, href: 'mailto:akkenapally.reddy@gmail.com', label: 'Email' },
             ].map(({ icon: Icon, href, label }) => (

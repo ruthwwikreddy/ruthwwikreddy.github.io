@@ -48,9 +48,9 @@ const Navbar = () => {
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
-      const offset = 100; // Adjust for fixed navbar
+      const offset = 120;
       const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      const offsetPosition = elementPosition + window.scrollY - offset;
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
@@ -64,7 +64,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-auto max-w-[95vw]">
+      <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[100] w-auto max-w-[95vw]">
         <nav
           className={cn(
             "flex items-center gap-1 p-2 rounded-2xl border border-white/10 bg-black/60 backdrop-blur-xl shadow-lg transition-all duration-300",
