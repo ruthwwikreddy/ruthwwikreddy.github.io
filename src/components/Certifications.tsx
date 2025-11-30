@@ -68,19 +68,19 @@ const Certifications = () => {
   }, [selectedImageIndex]);
 
   return (
-    <section id="about" className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-black/80 to-black/95">
+    <section id="certifications" className="py-16 sm:py-20 md:py-24 bg-black">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="section-title text-center mx-auto mb-6 text-3xl sm:text-4xl md:text-5xl font-bold">Certifications</h2>
+          <h2 className="section-title text-center mx-auto mb-6 text-3xl sm:text-4xl md:text-5xl font-bold text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]">Certifications</h2>
         </div>
-        
+
         <div className="mt-12">
           <div className="mt-4">
             <div className="relative">
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
                 {certificates.map((cert, index) => (
-                  <div key={cert.id} className="bg-black border border-[#032950]/20 rounded-lg overflow-hidden hover:border-[#032950]/60 transition-all duration-300 hover:shadow-[0_0_15px_rgba(3,41,80,0.4)] group">
-                    <button 
+                  <div key={cert.id} className="bg-black border border-white/10 rounded-lg overflow-hidden hover:border-white/30 transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,255,255,0.1)] group">
+                    <button
                       onClick={() => openModal(index, 'certificate')}
                       className="block relative aspect-[4/3] overflow-hidden w-full"
                     >
@@ -90,7 +90,7 @@ const Certifications = () => {
                         className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 filter saturate-0 group-hover:saturate-100"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <Award className="w-8 h-8 text-[#032950] opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0" />
+                        <Award className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0" />
                       </div>
                     </button>
                   </div>
@@ -105,29 +105,29 @@ const Certifications = () => {
       {selectedImageIndex !== null && modalType === 'certificate' && (
         <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4">
           <div className="absolute inset-0" onClick={closeModal}></div>
-          
+
           <div className="relative z-10 max-w-7xl w-full h-full flex flex-col">
             <div className="flex justify-between items-center p-4">
-              <div className="text-[#032950] text-lg">
+              <div className="text-white text-lg">
                 Certificate {selectedImageIndex + 1} of {certificates.length}
               </div>
               <div className="flex space-x-4">
-                <button onClick={zoomIn} className="text-white hover:text-[#032950] transition-colors">
+                <button onClick={zoomIn} className="text-white/70 hover:text-white transition-colors">
                   <ZoomIn className="h-6 w-6" />
                 </button>
-                <button onClick={zoomOut} className="text-white hover:text-[#032950] transition-colors">
+                <button onClick={zoomOut} className="text-white/70 hover:text-white transition-colors">
                   <ZoomOut className="h-6 w-6" />
                 </button>
-                <button onClick={closeModal} className="text-white hover:text-[#032950] transition-colors">
+                <button onClick={closeModal} className="text-white/70 hover:text-white transition-colors">
                   <X className="h-6 w-6" />
                 </button>
               </div>
             </div>
-            
+
             <div className="flex-1 overflow-auto flex items-center justify-center">
               <div
                 className="cursor-move relative"
-                style={{ 
+                style={{
                   transform: `scale(${zoomLevel})`,
                   transition: 'transform 0.2s ease-out'
                 }}
@@ -136,26 +136,26 @@ const Certifications = () => {
                   <img
                     src={certificates[selectedImageIndex].url}
                     alt={`Certificate ${certificates[selectedImageIndex].id}`}
-                    className="max-h-[80vh] border border-[#032950]/30 shadow-[0_0_30px_rgba(3,41,80,0.3)]"
+                    className="max-h-[80vh] border border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.1)]"
                     style={{ maxWidth: '90vw' }}
                   />
                 )}
               </div>
             </div>
-            
+
             <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
-              <button 
+              <button
                 onClick={showPreviousImage}
-                className="bg-[#032950] rounded-full p-2 text-white hover:bg-[#021c33] hover:shadow-[0_0_15px_rgba(3,41,80,0.7)] transition-all duration-300"
+                className="bg-white/10 rounded-full p-2 text-white hover:bg-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] transition-all duration-300 backdrop-blur-sm"
               >
                 <ChevronLeft className="h-6 w-6" />
               </button>
             </div>
-            
+
             <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
-              <button 
+              <button
                 onClick={showNextImage}
-                className="bg-[#032950] rounded-full p-2 text-white hover:bg-[#021c33] hover:shadow-[0_0_15px_rgba(3,41,80,0.7)] transition-all duration-300"
+                className="bg-white/10 rounded-full p-2 text-white hover:bg-white/20 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] transition-all duration-300 backdrop-blur-sm"
               >
                 <ChevronRight className="h-6 w-6" />
               </button>

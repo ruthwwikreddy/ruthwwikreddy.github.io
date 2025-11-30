@@ -30,7 +30,7 @@ const Contact = ({ formData, setFormData, onSubmit }: ContactProps) => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!formRef.current) return;
       const rect = formRef.current.getBoundingClientRect();
-      
+
       if (
         e.clientX >= rect.left &&
         e.clientX <= rect.right &&
@@ -77,22 +77,22 @@ const Contact = ({ formData, setFormData, onSubmit }: ContactProps) => {
   };
 
   return (
-    <section id="contact" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-black/80 to-black/95 relative overflow-hidden">
+    <section id="contact" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-black relative overflow-hidden">
       {/* Animated background particles */}
       <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none"></div>
       <div className="absolute inset-0">
         {[...Array(10)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 rounded-full bg-[#007BFF]/30"
-            initial={{ 
+            className="absolute w-1 h-1 rounded-full bg-white/20"
+            initial={{
               x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight 
+              y: Math.random() * window.innerHeight
             }}
             animate={{
               y: [0, Math.random() * 200 - 100, 0],
               x: [0, Math.random() * 200 - 100, 0],
-              opacity: [0.3, 0.7, 0.3]
+              opacity: [0.1, 0.3, 0.1]
             }}
             transition={{
               duration: Math.random() * 5 + 5,
@@ -105,25 +105,25 @@ const Contact = ({ formData, setFormData, onSubmit }: ContactProps) => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="section-title text-center mx-auto mb-6 text-3xl sm:text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#007BFF] to-[#0069d9]">Get in Touch</h2>
+          <h2 className="section-title text-center mx-auto mb-6 text-3xl sm:text-4xl md:text-5xl font-bold text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]">Get in Touch</h2>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto mt-6 sm:mt-8 md:mt-12">
           {/* Maps Section */}
           <div className="space-y-4">
-            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-portfolio-primary bg-clip-text text-transparent bg-gradient-to-r from-[#007BFF] to-[#0069d9]">Where to Find Me</h3>
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">Where to Find Me</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="relative rounded-lg overflow-hidden">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.5659984752456!2d78.41845781096144!3d17.43260348339333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb918accfe05cb%3A0x83122c6ae78bd743!2sRam%20Reddy%20Apartment!5e0!3m2!1sen!2sin!4v1747371557884!5m2!1sen!2sin" 
-                  width="100%" 
-                  height="250" 
-                  style={{ 
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.5659984752456!2d78.41845781096144!3d17.43260348339333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb918accfe05cb%3A0x83122c6ae78bd743!2sRam%20Reddy%20Apartment!5e0!3m2!1sen!2sin!4v1747371557884!5m2!1sen!2sin"
+                  width="100%"
+                  height="250"
+                  style={{
                     border: 'none',
                     borderRadius: '8px',
                     boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
                     transition: 'transform 0.3s ease'
-                  }} 
+                  }}
                   allowFullScreen={true}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -132,15 +132,15 @@ const Contact = ({ formData, setFormData, onSubmit }: ContactProps) => {
               </div>
               <div className="relative rounded-lg overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.0667082323203!2d78.34581241096195!3d17.456520983373476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9300247d04f1%3A0x34676c10843100d8!2sRam%20Reddy%20Apartments!5e0!3m2!1sen!2sin!4v1747371616988!5m2!1sen!2sin" 
-                  width="100%" 
-                  height="250" 
-                  style={{ 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.0667082323203!2d78.34581241096195!3d17.456520983373476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9300247d04f1%3A0x34676c10843100d8!2sRam%20Reddy%20Apartments!5e0!3m2!1sen!2sin!4v1747371616988!5m2!1sen!2sin"
+                  width="100%"
+                  height="250"
+                  style={{
                     border: 'none',
                     borderRadius: '8px',
                     boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
                     transition: 'transform 0.3s ease'
-                  }} 
+                  }}
                   allowFullScreen={true}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -153,31 +153,29 @@ const Contact = ({ formData, setFormData, onSubmit }: ContactProps) => {
           {/* Contact Form Section */}
           <div className="max-w-md sm:max-w-lg mx-auto">
             {state.succeeded ? (
-              <div 
+              <div
                 className="card backdrop-blur-sm md:backdrop-blur-lg p-4 sm:p-6 md:p-8 text-center animate-fade-up"
               >
                 <div className="flex flex-col items-center justify-center space-y-3 md:space-y-4 py-6 md:py-8">
-                  <div className="w-14 h-14 md:w-16 md:h-16 bg-portfolio-primary/10 rounded-full flex items-center justify-center mb-3 md:mb-4 animate-pulse-scale">
-                    <CheckCircle className="w-7 h-7 md:w-8 md:h-8 text-portfolio-primary" />
+                  <div className="w-14 h-14 md:w-16 md:h-16 bg-white/10 rounded-full flex items-center justify-center mb-3 md:mb-4 animate-pulse-scale">
+                    <CheckCircle className="w-7 h-7 md:w-8 md:h-8 text-white" />
                   </div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-portfolio-primary">Message Sent!</h3>
-                  <p className="text-gray-300 text-xs sm:text-sm md:text-base">Thanks for reaching out. I'll get back to you soon.</p>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.3)]">Message Sent!</h3>
+                  <p className="text-white/70 text-xs sm:text-sm md:text-base">Thanks for reaching out. I'll get back to you soon.</p>
                 </div>
               </div>
             ) : (
-              <div 
-                className="card backdrop-blur-sm md:backdrop-blur-lg p-4 sm:p-6 md:p-8 transition-all duration-500 animate-fade-up border border-[#007BFF]/20 bg-black/50 shadow-[0_0_20px_rgba(0,123,255,0.1)] hover:shadow-[0_0_30px_rgba(0,123,255,0.2)] hover:scale-[1.02]"
+              <div
+                className="card backdrop-blur-sm md:backdrop-blur-lg p-4 sm:p-6 md:p-8 transition-all duration-500 animate-fade-up border border-white/10 bg-black/50 hover:border-white/20 hover:scale-[1.02]"
                 style={{
                   background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(3, 41, 80, 0.1) 0%, rgba(0, 0, 0, 0.8) 50%)`,
                 }}
               >
                 <div className="absolute inset-0 rounded-lg pointer-events-none overflow-hidden">
-                  <div className="absolute inset-px rounded-lg border border-portfolio-primary/20 z-0"></div>
-                  <div className="absolute h-32 w-32 md:h-40 md:w-40 bg-portfolio-primary/20 md:bg-portfolio-primary/30 blur-[60px] md:blur-[100px] -bottom-10 -right-10 md:-bottom-20 md:-right-20 z-0"></div>
-                  <div className="absolute h-32 w-32 md:h-40 md:w-40 bg-portfolio-primary/10 md:bg-portfolio-primary/20 blur-[60px] md:blur-[100px] -top-10 -left-10 md:-top-20 md:-left-20 z-0"></div>
+                  <div className="absolute inset-px rounded-lg border border-white/10 z-0"></div>
                 </div>
-                
-                <form 
+
+                <form
                   ref={formRef}
                   onSubmit={handleFormSubmit}
                   className="space-y-4"
@@ -193,7 +191,7 @@ const Contact = ({ formData, setFormData, onSubmit }: ContactProps) => {
                         name="name"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-3 sm:px-4 py-2 sm:py-2.5 md:py-2 bg-black/50 border border-[#007BFF]/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#007BFF] focus:ring-2 focus:ring-[#007BFF]/30 transition-all duration-300 hover:border-[#007BFF]/40 hover:shadow-[0_0_10px_rgba(0,123,255,0.2)]"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-2.5 md:py-2 bg-black/50 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-white/50 focus:ring-2 focus:ring-white/20 transition-all duration-300 hover:border-white/30"
                         placeholder="Your name"
                         required
                       />
@@ -217,7 +215,7 @@ const Contact = ({ formData, setFormData, onSubmit }: ContactProps) => {
                         name="email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-2 bg-black/50 border border-[#007BFF]/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#007BFF] transition-all duration-300"
+                        className="w-full px-4 py-2 bg-black/50 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-white/50 transition-all duration-300"
                         placeholder="Your email"
                         required
                       />
@@ -241,7 +239,7 @@ const Contact = ({ formData, setFormData, onSubmit }: ContactProps) => {
                         name="subject"
                         value={formData.subject}
                         onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                        className="w-full px-4 py-2 bg-black/50 border border-[#007BFF]/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#007BFF] transition-all duration-300"
+                        className="w-full px-4 py-2 bg-black/50 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-white/50 transition-all duration-300"
                         placeholder="Subject"
                         required
                       />
@@ -264,7 +262,7 @@ const Contact = ({ formData, setFormData, onSubmit }: ContactProps) => {
                         name="message"
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className="w-full px-4 py-2 bg-black/50 border border-[#007BFF]/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-[#007BFF] transition-all duration-300 resize-none"
+                        className="w-full px-4 py-2 bg-black/50 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-white/50 transition-all duration-300 resize-none"
                         placeholder="Your message"
                         required
                         rows={4}
@@ -274,7 +272,7 @@ const Contact = ({ formData, setFormData, onSubmit }: ContactProps) => {
                         initial={{ opacity: 0 }}
                         whileHover={{ opacity: 1 }}
                         transition={{ duration: 0.3 }}
-                        style={{ 
+                        style={{
                           boxShadow: 'inset 0 0 15px rgba(3, 41, 80, 0.3)',
                           background: 'radial-gradient(circle at center, rgba(3, 41, 80, 0.05) 0%, transparent 70%)'
                         }}
@@ -285,11 +283,11 @@ const Contact = ({ formData, setFormData, onSubmit }: ContactProps) => {
                   <button
                     type="submit"
                     disabled={state.submitting}
-                    className="w-full py-3 md:py-3.5 px-6 md:px-8 rounded-md bg-portfolio-primary hover:bg-portfolio-primary/90 text-white font-medium text-sm md:text-base transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:bg-portfolio-primary active:scale-95"
+                    className="w-full py-3 md:py-3.5 px-6 md:px-8 rounded-md bg-white text-black hover:bg-white/90 font-medium text-sm md:text-base transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed active:scale-95"
                   >
                     {state.submitting ? 'Sending...' : 'Send Message'}
                   </button>
-                  
+
                 </form>
               </div>
             )}
