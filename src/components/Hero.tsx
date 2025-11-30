@@ -65,16 +65,6 @@ const Hero = () => {
           initial="hidden"
           animate="visible"
         >
-          {/* Badge */}
-          <motion.div variants={itemVariants} className="mb-8 inline-block">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
-              <Sparkles className="w-4 h-4 text-white" />
-              <span className="text-sm font-medium text-white">
-                Available for opportunities
-              </span>
-            </div>
-          </motion.div>
-
           {/* Profile Image */}
           <motion.div variants={itemVariants} className="mb-8">
             <motion.div
