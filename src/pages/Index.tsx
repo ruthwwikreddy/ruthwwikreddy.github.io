@@ -25,20 +25,6 @@ const Index = () => {
     message: ''
   });
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      setContactFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
-    } catch (error) {
-      console.error('Submission failed:', error);
-    }
-  };
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 1000);
@@ -123,7 +109,6 @@ const Index = () => {
                 <Contact
                   formData={contactFormData}
                   setFormData={setContactFormData}
-                  onSubmit={handleSubmit}
                 />
               </main>
               <Footer />

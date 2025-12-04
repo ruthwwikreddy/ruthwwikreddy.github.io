@@ -1,6 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { Send, CheckCircle, Mail, MapPin, ArrowRight } from 'lucide-react';
-import { useForm } from '@formspree/react';
+import React, { useState } from 'react';
+import { CheckCircle, Mail, MapPin, ArrowRight, AlertCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface ContactFormData {
@@ -13,16 +12,42 @@ interface ContactFormData {
 interface ContactProps {
   formData: ContactFormData;
   setFormData: (data: ContactFormData) => void;
-  onSubmit: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
 }
 
-const Contact = ({ formData, setFormData, onSubmit }: ContactProps) => {
-  const [state, handleSubmit] = useForm("xyzwlbqk");
-  const [isHovered, setIsHovered] = useState(false);
+const Contact = ({ formData, setFormData }: ContactProps) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await onSubmit(e);
+    setIsSubmitting(true);
+    setErrorMessage('');
+
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiUrl}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setIsSuccess(true);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setErrorMessage(data.message || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setErrorMessage('Failed to connect to the server. Please ensure the backend is running.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -83,7 +108,7 @@ const Contact = ({ formData, setFormData, onSubmit }: ContactProps) => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {state.succeeded ? (
+            {isSuccess ? (
               <div className="h-full min-h-[400px] flex items-center justify-center p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm">
                 <div className="text-center space-y-4">
                   <div className="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse">
@@ -91,6 +116,12 @@ const Contact = ({ formData, setFormData, onSubmit }: ContactProps) => {
                   </div>
                   <h3 className="text-3xl font-bold text-white">Message Sent!</h3>
                   <p className="text-white/60">I'll get back to you as soon as possible.</p>
+                  <button
+                    onClick={() => setIsSuccess(false)}
+                    className="mt-6 px-6 py-2 bg-white/10 hover:bg-white/20 rounded-full text-white text-sm transition-colors"
+                  >
+                    Send another message
+                  </button>
                 </div>
               </div>
             ) : (
@@ -98,6 +129,13 @@ const Contact = ({ formData, setFormData, onSubmit }: ContactProps) => {
                 onSubmit={handleFormSubmit}
                 className="space-y-6 p-8 md:p-10 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-white/20 transition-colors"
               >
+                {errorMessage && (
+                  <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl flex items-center gap-3 text-red-400">
+                    <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                    <p className="text-sm">{errorMessage}</p>
+                  </div>
+                )}
+
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium text-white/70 ml-1">Name</label>
                   <input
@@ -155,13 +193,11 @@ const Contact = ({ formData, setFormData, onSubmit }: ContactProps) => {
 
                 <button
                   type="submit"
-                  disabled={state.submitting}
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
+                  disabled={isSubmitting}
                   className="w-full py-4 px-8 rounded-xl bg-white text-black font-bold text-lg hover:bg-white/90 transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  {state.submitting ? 'Sending...' : 'Send Message'}
-                  <ArrowRight className={`w-5 h-5 transition-transform duration-300 ${isHovered ? 'translate-x-1' : ''}`} />
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </button>
               </form>
             )}
