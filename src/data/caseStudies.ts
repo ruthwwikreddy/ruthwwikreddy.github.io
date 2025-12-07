@@ -143,13 +143,9 @@ export const caseStudies = [
     }
   },
 
-  //////////////////////////////////////////////////////////////////////////
-  // NEW 7 CASE STUDIES YOU ASKED TO ADD
-  //////////////////////////////////////////////////////////////////////////
-
   {
     id: 'ecoclean',
-    title: 'EcoClean – Medical Waste Conversion System',
+    title: 'EcoClean',
     description: 'Smart medical waste management hardware + digital dashboard',
     category: 'Hardware / Healthcare',
     image: '/images/case-studies/5.png',
@@ -187,7 +183,7 @@ export const caseStudies = [
 
   {
     id: 'freshlife',
-    title: 'FreshLife – Food Waste Reduction App',
+    title: 'FreshLife ',
     description: 'Smart inventory tracking and recipe recommendation platform',
     category: 'Productivity / Lifestyle',
     image: '/images/case-studies/6.png',
@@ -218,7 +214,7 @@ export const caseStudies = [
 
   {
     id: 'liblegal',
-    title: 'Lib Legal Info Bot',
+    title: 'Legal Info Bot',
     description: 'AI-powered legal information assistant',
     category: 'AI / LegalTech',
     image: '/images/case-studies/7.png',
@@ -248,7 +244,7 @@ export const caseStudies = [
 
   {
     id: '3dviewer',
-    title: '3D Model Visualizer – Gemini + Three.js',
+    title: '3D Model Visualizer',
     description: 'Interactive 3D viewer with hand-tracking controls',
     category: 'AI / 3D / Web',
     image: '/images/case-studies/8.png',
@@ -278,7 +274,7 @@ export const caseStudies = [
 
   {
     id: 'particlesim',
-    title: 'Particle Visualizer – Motion Reactive',
+    title: 'Particle Visualizer ',
     description: 'Three.js particle system with webcam motion overlay',
     category: 'WebGL / AI / Fun',
     image: '/images/case-studies/9.png',
@@ -308,7 +304,7 @@ export const caseStudies = [
 
   {
     id: 'ideaboard',
-    title: 'IdeaBoard – AI Idea Management SaaS',
+    title: 'IdeaBoard',
     description: 'Your mini-SaaS with paid users and real customers',
     category: 'SaaS / AI / Productivity',
     image: '/images/case-studies/10.png',
@@ -339,7 +335,7 @@ export const caseStudies = [
 
   {
     id: 'emergencycard',
-    title: 'MediLink Emergency Card',
+    title: 'Emergency Card',
     description: 'Digital emergency medical identity system',
     category: 'Healthcare / Utility',
     image: '/images/case-studies/11.png',
