@@ -8,6 +8,7 @@ import Certifications from "@/components/Certifications";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
+import Links from "@/components/Links";
 
 interface ContactFormData {
   name: string;
@@ -73,7 +74,7 @@ const Index = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ repeat: Infinity, duration: 1, repeatType: "reverse" }}
           >
-            R
+            RR
           </motion.div>
         </motion.div>
       ) : (
@@ -105,6 +106,7 @@ const Index = () => {
 
                 <About />
                 <CaseStudyCarousel />
+                <Links />
                 <Certifications />
                 <Contact
                   formData={contactFormData}

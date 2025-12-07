@@ -167,7 +167,7 @@ const Footer = () => {
           className="text-center text-white/50 text-sm"
         >
           <p className="flex items-center justify-center gap-2">
-            Made with <Heart className="w-4 h-4 text-white fill-current" /> by Ruthwik Reddy
+            built with <Heart className="w-4 h-4 text-white fill-current" />  by me.
           </p>
           <p className="mt-2">© {new Date().getFullYear()} All rights reserved.</p>
         </motion.div>
