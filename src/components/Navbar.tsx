@@ -12,25 +12,29 @@ const Navbar = () => {
       setShowScrollTop(window.scrollY > 500);
 
       const sections = ['home', 'about', 'case-studies', 'certifications', 'contact'];
-      // Offset to trigger active state slightly before the section hits the top
-      const scrollPosition = window.scrollY + window.innerHeight / 3;
+
+      // Get current scroll position
+      const scrollPosition = window.scrollY;
+
+      // Find which section is currently in view
+      let currentSection = 'home';
 
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
-          const { top, bottom } = element.getBoundingClientRect();
-          const elementTop = top + window.scrollY;
-          const elementBottom = bottom + window.scrollY;
-
-          if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
-            setActiveSection(section);
-            break;
+          const { top } = element.getBoundingClientRect();
+          // Check if section is in the upper half of viewport
+          if (top <= 150) {
+            currentSection = section;
           }
         }
       }
 
-      if (window.scrollY < 100) setActiveSection('home');
+      setActiveSection(currentSection);
     };
+
+    // Run once on mount
+    handleScroll();
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -46,15 +50,28 @@ const Navbar = () => {
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
+    console.log('scrollToSection called with href:', href);
+
     const element = document.querySelector(href);
+    console.log('Found element:', element);
+
     if (element) {
-      const offset = 120;
+      const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.scrollY - offset;
+
+      console.log('Element position:', elementPosition);
+      console.log('Current scrollY:', window.scrollY);
+      console.log('Target scroll position:', offsetPosition);
+
       window.scrollTo({
         top: offsetPosition,
         behavior: 'smooth'
       });
+
+      console.log('Scroll command executed');
+    } else {
+      console.error('Element not found for href:', href);
     }
   };
 

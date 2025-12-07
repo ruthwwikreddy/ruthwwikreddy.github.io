@@ -35,7 +35,7 @@ export function CaseStudyModal({ isOpen, onClose, caseStudy }: CaseStudyModalPro
   };
 
   return (
-    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 overflow-y-auto">
+    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[150] overflow-y-auto">
       <div className="min-h-screen px-4 py-8 flex justify-center items-center">
         <div className="max-w-4xl w-full bg-black/90 rounded-2xl border border-white/10 shadow-lg">
           <div className="p-6 md:p-8">
@@ -50,7 +50,14 @@ export function CaseStudyModal({ isOpen, onClose, caseStudy }: CaseStudyModalPro
             </div>
 
             <div className="mb-4">
-              <span className={`px-3 py-1 text-sm font-semibold rounded-full ${caseStudy.status === 'Ongoing' ? 'bg-green-600 text-white' : 'bg-gray-500 text-white'}`}>{caseStudy.status}</span>
+              <span className={`px-3 py-1 text-sm font-semibold rounded-full ${caseStudy.status === 'Ongoing'
+                  ? 'bg-green-600 text-white'
+                  : caseStudy.status === 'Handovered'
+                    ? 'bg-blue-600 text-white'
+                    : caseStudy.status === 'Completed'
+                      ? 'bg-purple-600 text-white'
+                      : 'bg-emerald-600 text-white' // Live
+                }`}>{caseStudy.status}</span>
             </div>
 
             <div className="space-y-8">

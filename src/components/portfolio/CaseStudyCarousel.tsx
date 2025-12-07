@@ -8,7 +8,7 @@ export interface CaseStudy {
   description: string;
   category: string;
   image: string;
-  status: 'Ongoing' | 'Handovered';
+  status: 'Ongoing' | 'Handovered' | 'Completed' | 'Live';
   overview: string;
   challenge: string[];
   solution: string[];
@@ -46,15 +46,6 @@ export function CaseStudyCarousel() {
             >
               Case Studies
             </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-white/70 max-w-2xl mx-auto text-sm sm:text-base md:text-lg"
-            >
-              Explore my recent projects and case studies that showcase my expertise and problem-solving approach
-            </motion.p>
           </div>
         </div>
 
@@ -118,7 +109,11 @@ export function CaseStudyCarousel() {
                         </span>
                         <span className={`px-2.5 sm:px-3 py-1 text-xs sm:text-sm font-medium rounded-full border backdrop-blur-sm ${study.status === 'Ongoing'
                             ? 'bg-green-500/10 text-green-300 border-green-500/30'
-                            : 'bg-blue-500/10 text-blue-300 border-blue-500/30'
+                            : study.status === 'Handovered'
+                              ? 'bg-blue-500/10 text-blue-300 border-blue-500/30'
+                              : study.status === 'Completed'
+                                ? 'bg-purple-500/10 text-purple-300 border-purple-500/30'
+                                : 'bg-emerald-500/10 text-emerald-300 border-emerald-500/30' // Live
                           }`}>
                           {study.status}
                         </span>

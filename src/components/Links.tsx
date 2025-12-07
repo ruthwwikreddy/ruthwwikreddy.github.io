@@ -551,6 +551,206 @@ const Links = () => {
       icon: <Link2 className="h-4 w-4" />,
       description: "Investment and financial learning platform.",
       tags: ["Finance", "Investment", "Learning"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/ashwini-vaishnaw",
+      label: "Ashwini Vaishnaw",
+      category: "Portfolio",
+      icon: <Palette className="h-4 w-4" />,
+      description: "Portfolio or tribute website project.",
+      tags: ["Portfolio", "Web", "Showcase"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/blind-vision-server",
+      label: "Blind Vision Server",
+      category: "Accessibility",
+      icon: <Code className="h-4 w-4" />,
+      description: "Backend server for blind vision assistance application.",
+      tags: ["Accessibility", "Server", "AI"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/blindvision",
+      label: "BlindVision",
+      category: "Accessibility",
+      icon: <Link2 className="h-4 w-4" />,
+      description: "AI-powered vision assistance for visually impaired users.",
+      tags: ["Accessibility", "AI", "Computer Vision"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/cambodia",
+      label: "Cambodia",
+      category: "Travel",
+      icon: <Palette className="h-4 w-4" />,
+      description: "Travel or cultural showcase website for Cambodia.",
+      tags: ["Travel", "Culture", "Web"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/cambroos",
+      label: "Cambroos",
+      category: "Project",
+      icon: <Link2 className="h-4 w-4" />,
+      description: "Business or service platform project.",
+      tags: ["Business", "Platform", "Web"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/cambroos-sg-blueprint",
+      label: "Cambroos SG Blueprint",
+      category: "Project",
+      icon: <Code className="h-4 w-4" />,
+      description: "Blueprint and planning documentation for Cambroos Singapore.",
+      tags: ["Planning", "Documentation", "Business"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/email-sender",
+      label: "Email Sender",
+      category: "Utility",
+      icon: <Link2 className="h-4 w-4" />,
+      description: "Automated email sending utility tool.",
+      tags: ["Email", "Automation", "Utility"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/emergency",
+      label: "Emergency",
+      category: "Safety",
+      icon: <Link2 className="h-4 w-4" />,
+      description: "Emergency response and information system.",
+      tags: ["Safety", "Emergency", "Healthcare"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/gym-manager",
+      label: "Gym Manager",
+      category: "Fitness",
+      icon: <Link2 className="h-4 w-4" />,
+      description: "Comprehensive gym and fitness center management system.",
+      tags: ["Fitness", "Management", "Business"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/ideaboard",
+      label: "IdeaBoard",
+      category: "Productivity",
+      icon: <Link2 className="h-4 w-4" />,
+      description: "Collaborative idea sharing and brainstorming platform.",
+      tags: ["Productivity", "Collaboration", "Ideas"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/LIB",
+      label: "LIB",
+      category: "Library",
+      icon: <Code className="h-4 w-4" />,
+      description: "Custom library or code collection.",
+      tags: ["Library", "Code", "Utilities"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/mac-files",
+      label: "Mac Files",
+      category: "Utility",
+      icon: <Link2 className="h-4 w-4" />,
+      description: "macOS configuration and setup files.",
+      tags: ["macOS", "Configuration", "Dotfiles"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/medilink-resources",
+      label: "MediLink Resources",
+      category: "Healthcare",
+      icon: <Link2 className="h-4 w-4" />,
+      description: "Additional resources and documentation for MediLink.",
+      tags: ["Healthcare", "Documentation", "Resources"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/mobile-number",
+      label: "Mobile Number",
+      category: "Utility",
+      icon: <Link2 className="h-4 w-4" />,
+      description: "Mobile number validation and formatting tool.",
+      tags: ["Utility", "Validation", "Tool"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/morse-code",
+      label: "Morse Code",
+      category: "Educational",
+      icon: <Bookmark className="h-4 w-4" />,
+      description: "Morse code translator and learning tool.",
+      tags: ["Education", "Communication", "Tool"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/name-predictor",
+      label: "Name Predictor",
+      category: "Fun",
+      icon: <Gamepad2 className="h-4 w-4" />,
+      description: "AI-based name prediction and suggestion tool.",
+      tags: ["Fun", "AI", "Prediction"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/particle",
+      label: "Particle",
+      category: "UI/UX",
+      icon: <Palette className="h-4 w-4" />,
+      description: "Particle animation and effects library.",
+      tags: ["Animation", "UI", "Effects"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/photobooth",
+      label: "Photobooth",
+      category: "Creative",
+      icon: <Palette className="h-4 w-4" />,
+      description: "Web-based photobooth with filters and effects.",
+      tags: ["Creative", "Photo", "Fun"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/plagiarism_checker",
+      label: "Plagiarism Checker",
+      category: "Educational",
+      icon: <Code className="h-4 w-4" />,
+      description: "Tool to detect plagiarism in text documents.",
+      tags: ["Education", "Tool", "Detection"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/predict-year",
+      label: "Predict Year",
+      category: "Fun",
+      icon: <Gamepad2 className="h-4 w-4" />,
+      description: "Year prediction game or tool.",
+      tags: ["Fun", "Prediction", "Game"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/rk-chaudhary",
+      label: "RK Chaudhary",
+      category: "Portfolio",
+      icon: <Palette className="h-4 w-4" />,
+      description: "Portfolio website project.",
+      tags: ["Portfolio", "Web", "Personal"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/saudi-arabia",
+      label: "Saudi Arabia",
+      category: "Travel",
+      icon: <Palette className="h-4 w-4" />,
+      description: "Travel or cultural showcase for Saudi Arabia.",
+      tags: ["Travel", "Culture", "Web"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/silencer",
+      label: "Silencer",
+      category: "Utility",
+      icon: <Link2 className="h-4 w-4" />,
+      description: "Audio silencing or noise reduction tool.",
+      tags: ["Audio", "Utility", "Tool"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/technical-space",
+      label: "Technical Space",
+      category: "Education",
+      icon: <Code className="h-4 w-4" />,
+      description: "Technical learning and resource platform.",
+      tags: ["Education", "Technical", "Learning"]
+    },
+    {
+      github: "https://github.com/ruthwwikreddy/technical-space-v2",
+      label: "Technical Space V2",
+      category: "Education",
+      icon: <Code className="h-4 w-4" />,
+      description: "Enhanced version of Technical Space platform.",
+      tags: ["Education", "Technical", "Learning"]
     }
   ];
 
